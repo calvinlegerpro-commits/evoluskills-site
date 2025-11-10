@@ -24,7 +24,7 @@ const Home = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative min-h-[700px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[700px] flex items-center justify-center overflow-hidden border-b-0">
         {/* Background avec mesh gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/30 to-background">
           <div className="absolute inset-0 opacity-50" style={{ background: 'var(--gradient-mesh)' }} />
