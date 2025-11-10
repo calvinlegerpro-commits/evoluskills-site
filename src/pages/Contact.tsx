@@ -91,7 +91,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Info */}
             <div className="space-y-6">
-              <Card className="border-accent/20 overflow-hidden group hover:shadow-xl hover:shadow-accent/10 transition-all duration-500 animate-fade-in">
+              <Card className="border-0 shadow-md overflow-hidden group hover:shadow-xl hover:shadow-accent/10 transition-all duration-500 animate-fade-in">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
                 <CardHeader className="relative">
                   <CardTitle>Informations de contact</CardTitle>
@@ -126,7 +126,7 @@ const Contact = () => {
                 </CardContent>
               </Card>
 
-              <Card className="border-accent/20 overflow-hidden animate-fade-in" style={{ animationDelay: '0.1s' }}>
+              <Card className="border-0 shadow-md overflow-hidden group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 animate-fade-in" style={{ animationDelay: '0.1s' }}>
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-secondary"></div>
                 <CardContent className="p-6 relative">
                   <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-xl"></div>
@@ -147,7 +147,7 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <Card className="border-accent/20 overflow-hidden group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+              <Card className="border-0 shadow-md overflow-hidden group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 animate-fade-in" style={{ animationDelay: '0.1s' }}>
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-secondary"></div>
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
                 <CardHeader className="relative">

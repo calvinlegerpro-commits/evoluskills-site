@@ -63,7 +63,7 @@ const About = () => {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold mb-6 text-center">Notre mission</h2>
-          <Card className="border-accent/20 overflow-hidden group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 animate-fade-in">
+          <Card className="border-0 shadow-md overflow-hidden group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 animate-fade-in">
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
             <CardContent className="p-8 relative">
               <p className="text-lg leading-relaxed mb-4">

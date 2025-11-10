@@ -79,7 +79,7 @@ const Certifications = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 mb-16">
             {certifications.map((cert, index) => (
-              <Card key={index} className="border-accent/20 overflow-hidden group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 animate-fade-in">
+              <Card key={index} className="border-0 shadow-md overflow-hidden group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 animate-fade-in">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
                 <CardHeader className="relative">
                   <div className="flex items-start justify-between gap-4 flex-wrap mb-4">
