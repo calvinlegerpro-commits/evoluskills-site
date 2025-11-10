@@ -130,7 +130,7 @@ const Formations = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
-              <Card>
+              <Card className="border-t-0">
                 <CardHeader>
                   <div className="flex flex-wrap gap-2 mb-4">
                     <Badge className="bg-accent text-accent-foreground">{formation.level}</Badge>
