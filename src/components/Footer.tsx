@@ -42,6 +42,16 @@ const Footer = () => {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link to="/cgv" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  CGV
+                </Link>
+              </li>
+              <li>
+                <Link to="/mentions-legales" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Mentions légales
+                </Link>
+              </li>
             </ul>
           </div>
 
