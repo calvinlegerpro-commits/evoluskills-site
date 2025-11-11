@@ -45,14 +45,14 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "contact@formaskill.fr",
-      link: "mailto:contact@formaskill.fr",
+      content: "contact@formaskills.pro",
+      link: "mailto:contact@formaskills.pro",
     },
     {
       icon: Phone,
       title: "Téléphone",
-      content: "01 23 45 67 89",
-      link: "tel:+33123456789",
+      content: "+33 6 95 02 76 11",
+      link: "tel:+33695027611",
     },
     {
       icon: MapPin,
@@ -196,7 +196,7 @@ const Contact = () => {
                           type="tel"
                           value={formData.phone}
                           onChange={handleChange}
-                          placeholder="01 23 45 67 89"
+                          placeholder="+33 6 95 02 76 11"
                           className="border-accent/20 focus:border-accent transition-colors"
                         />
                       </div>

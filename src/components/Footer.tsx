@@ -8,7 +8,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">Formaskill</h3>
+            <h3 className="text-2xl font-bold mb-4">FormSkills</h3>
+            <p className="text-lg font-semibold text-primary-foreground/90 mb-2">
+              Se former pour l'avenir
+            </p>
             <p className="text-primary-foreground/80 mb-4">
               Organisme de formation professionnelle en marketing et communication.
               Formations finançables CPF.
@@ -48,14 +51,14 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-primary-foreground/80">
                 <Mail size={18} />
-                <a href="mailto:contact@formaskill.fr" className="hover:text-primary-foreground transition-colors">
-                  contact@formaskill.fr
+                <a href="mailto:contact@formaskills.pro" className="hover:text-primary-foreground transition-colors">
+                  contact@formaskills.pro
                 </a>
               </li>
               <li className="flex items-center gap-2 text-primary-foreground/80">
                 <Phone size={18} />
-                <a href="tel:+33123456789" className="hover:text-primary-foreground transition-colors">
-                  01 23 45 67 89
+                <a href="tel:+33695027611" className="hover:text-primary-foreground transition-colors">
+                  +33 6 95 02 76 11
                 </a>
               </li>
               <li className="flex items-center gap-2 text-primary-foreground/80">
@@ -67,7 +70,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-primary-foreground/60">
-          <p>&copy; {new Date().getFullYear()} Formaskill. Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()} FormSkills. Tous droits réservés.</p>
         </div>
       </div>
     </footer>
