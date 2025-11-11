@@ -1,44 +1,88 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
+
+// Schéma de validation Zod sécurisé
+const contactFormSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(2, "Le nom doit contenir au moins 2 caractères")
+    .max(100, "Le nom ne peut pas dépasser 100 caractères")
+    .regex(/^[a-zA-ZÀ-ÿ\s'-]+$/, "Le nom contient des caractères invalides"),
+  
+  email: z.string()
+    .trim()
+    .email("Email invalide")
+    .max(255, "L'email est trop long"),
+  
+  phone: z.string()
+    .trim()
+    .regex(/^(\+33|0)[1-9](\d{2}){4}$/, "Numéro de téléphone invalide (format: +33612345678)")
+    .optional()
+    .or(z.literal("")),
+  
+  subject: z.string()
+    .trim()
+    .min(3, "Le sujet doit contenir au moins 3 caractères")
+    .max(200, "Le sujet ne peut pas dépasser 200 caractères"),
+  
+  message: z.string()
+    .trim()
+    .min(10, "Le message doit contenir au moins 10 caractères")
+    .max(2000, "Le message ne peut pas dépasser 2000 caractères"),
+  
+  gdprConsent: z.boolean().refine((val) => val === true, {
+    message: "Vous devez accepter la politique de confidentialité",
+  }),
+  
+  // Honeypot anti-spam (champ invisible)
+  website: z.string().max(0, "Spam détecté"),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message envoyé !",
-      description: "Nous vous répondrons dans les plus brefs délais.",
-    });
-    setFormData({
+  
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
       name: "",
       email: "",
       phone: "",
       subject: "",
       message: "",
-    });
-  };
+      gdprConsent: false,
+      website: "", // Honeypot
+    },
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+  const onSubmit = (data: ContactFormValues) => {
+    // Vérification honeypot côté client
+    if (data.website) {
+      console.warn("Spam attempt blocked");
+      return;
+    }
+
+    // Ici, vous pourriez envoyer les données à un backend/API
+    // Pour l'instant, on affiche juste un toast
+    toast({
+      title: "Message envoyé !",
+      description: "Nous vous répondrons dans les plus brefs délais.",
     });
+    
+    form.reset();
   };
 
   const contactInfo = [
@@ -157,86 +201,159 @@ const Contact = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="relative">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">Nom complet *</Label>
-                        <Input
-                          id="name"
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                      {/* Honeypot anti-spam - invisible pour les humains */}
+                      <div className="hidden" aria-hidden="true">
+                        <FormField
+                          control={form.control}
+                          name="website"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Website</FormLabel>
+                              <FormControl>
+                                <Input {...field} tabIndex={-1} autoComplete="off" />
+                              </FormControl>
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <FormField
+                          control={form.control}
                           name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          required
-                          placeholder="Jean Dupont"
-                          className="border-accent/20 focus:border-accent transition-colors"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Nom complet *</FormLabel>
+                              <FormControl>
+                                <Input
+                                  placeholder="Jean Dupont"
+                                  className="border-accent/20 focus:border-accent transition-colors"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
                         />
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email *</Label>
-                        <Input
-                          id="email"
+                        
+                        <FormField
+                          control={form.control}
                           name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                          placeholder="jean.dupont@email.com"
-                          className="border-accent/20 focus:border-accent transition-colors"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Email *</FormLabel>
+                              <FormControl>
+                                <Input
+                                  type="email"
+                                  placeholder="jean.dupont@email.com"
+                                  className="border-accent/20 focus:border-accent transition-colors"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
                         />
                       </div>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="phone">Téléphone</Label>
-                        <Input
-                          id="phone"
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <FormField
+                          control={form.control}
                           name="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="+33 6 95 02 76 11"
-                          className="border-accent/20 focus:border-accent transition-colors"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Téléphone</FormLabel>
+                              <FormControl>
+                                <Input
+                                  type="tel"
+                                  placeholder="+33612345678"
+                                  className="border-accent/20 focus:border-accent transition-colors"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
                         />
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <Label htmlFor="subject">Sujet *</Label>
-                        <Input
-                          id="subject"
+                        
+                        <FormField
+                          control={form.control}
                           name="subject"
-                          value={formData.subject}
-                          onChange={handleChange}
-                          required
-                          placeholder="Demande d'information"
-                          className="border-accent/20 focus:border-accent transition-colors"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Sujet *</FormLabel>
+                              <FormControl>
+                                <Input
+                                  placeholder="Demande d'information"
+                                  className="border-accent/20 focus:border-accent transition-colors"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
                         />
                       </div>
-                    </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Message *</Label>
-                      <Textarea
-                        id="message"
+                      <FormField
+                        control={form.control}
                         name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                        rows={6}
-                        placeholder="Décrivez votre demande..."
-                        className="resize-none border-accent/20 focus:border-accent transition-colors"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Message *</FormLabel>
+                            <FormControl>
+                              <Textarea
+                                rows={6}
+                                placeholder="Décrivez votre demande..."
+                                className="resize-none border-accent/20 focus:border-accent transition-colors"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
-                    </div>
 
-                    <Button 
-                      type="submit" 
-                      size="lg"
-                      className="w-full md:w-auto bg-gradient-to-r from-primary via-accent to-secondary hover:shadow-xl hover:shadow-accent/20 hover:-translate-y-1 transition-all duration-300 text-primary-foreground"
-                    >
-                      Envoyer le message
-                    </Button>
-                  </form>
+                      <FormField
+                        control={form.control}
+                        name="gdprConsent"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-lg border border-accent/20 p-4 bg-accent/5">
+                            <FormControl>
+                              <Checkbox
+                                checked={field.value}
+                                onCheckedChange={field.onChange}
+                              />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                              <FormLabel className="text-sm font-normal cursor-pointer">
+                                J'accepte que mes données personnelles soient utilisées pour traiter ma demande. 
+                                Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données.{" "}
+                                <Link 
+                                  to="/mentions-legales" 
+                                  className="text-accent hover:underline font-medium"
+                                >
+                                  En savoir plus
+                                </Link>
+                              </FormLabel>
+                              <FormMessage />
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+
+                      <Button 
+                        type="submit" 
+                        size="lg"
+                        disabled={form.formState.isSubmitting}
+                        className="w-full md:w-auto bg-gradient-to-r from-primary via-accent to-secondary hover:shadow-xl hover:shadow-accent/20 hover:-translate-y-1 transition-all duration-300 text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {form.formState.isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+                      </Button>
+                    </form>
+                  </Form>
                 </CardContent>
               </Card>
             </div>
