@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.81.1";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -45,6 +46,53 @@ const handler = async (req: Request): Promise<Response> => {
 
   try {
     console.log("📧 Début du traitement de l'envoi d'email");
+    
+    // Extraire l'adresse IP du client pour le rate limiting
+    const clientIP = req.headers.get('x-forwarded-for')?.split(',')[0].trim() || 
+                     req.headers.get('x-real-ip') || 
+                     'unknown';
+    
+    console.log(`🔍 Vérification rate limiting pour IP: ${clientIP}`);
+    
+    // Initialiser le client Supabase pour le rate limiting
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+    const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+    const supabase = createClient(supabaseUrl, supabaseKey);
+    
+    // Vérifier si cette IP a déjà soumis récemment (dans les 5 dernières minutes)
+    const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000).toISOString();
+    const { data: recentSubmit, error: rateLimitError } = await supabase
+      .from('rate_limits')
+      .select('created_at')
+      .eq('ip_address', clientIP)
+      .eq('endpoint', 'contact-form')
+      .gte('created_at', fiveMinutesAgo)
+      .maybeSingle();
+    
+    if (rateLimitError) {
+      console.error("❌ Erreur lors de la vérification du rate limit:", rateLimitError);
+    }
+    
+    if (recentSubmit) {
+      const waitTime = Math.ceil((new Date(recentSubmit.created_at).getTime() + 5 * 60 * 1000 - Date.now()) / 1000 / 60);
+      console.warn(`⚠️ Rate limit dépassé pour IP: ${clientIP}`);
+      return new Response(
+        JSON.stringify({ 
+          error: "Trop de requêtes. Veuillez patienter avant de soumettre un nouveau message.",
+          retryAfter: waitTime
+        }),
+        { 
+          status: 429,
+          headers: { 
+            'Content-Type': 'application/json',
+            'Retry-After': (waitTime * 60).toString(),
+            ...corsHeaders 
+          } 
+        }
+      );
+    }
+    
+    console.log("✅ Rate limit OK, traitement de la requête");
     
     // Parse et valide les données
     const body = await req.json();
@@ -237,6 +285,21 @@ const handler = async (req: Request): Promise<Response> => {
 
     await client.close();
     console.log("🔌 Connexion SMTP fermée");
+    
+    // Enregistrer la soumission dans la table rate_limits
+    const { error: insertError } = await supabase
+      .from('rate_limits')
+      .insert({
+        ip_address: clientIP,
+        endpoint: 'contact-form'
+      });
+    
+    if (insertError) {
+      console.error("❌ Erreur lors de l'enregistrement du rate limit:", insertError);
+      // On ne bloque pas le succès si l'enregistrement échoue
+    } else {
+      console.log("✅ Rate limit enregistré pour IP:", clientIP);
+    }
 
     return new Response(
       JSON.stringify({ 
