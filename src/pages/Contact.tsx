@@ -12,6 +12,8 @@ import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
 
 // Schéma de validation Zod sécurisé
 const contactFormSchema = z.object({
@@ -54,6 +56,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -68,21 +71,53 @@ const Contact = () => {
     },
   });
 
-  const onSubmit = (data: ContactFormValues) => {
+  const onSubmit = async (data: ContactFormValues) => {
     // Vérification honeypot côté client
     if (data.website) {
       console.warn("Spam attempt blocked");
       return;
     }
 
-    // Ici, vous pourriez envoyer les données à un backend/API
-    // Pour l'instant, on affiche juste un toast
-    toast({
-      title: "Message envoyé !",
-      description: "Nous vous répondrons dans les plus brefs délais.",
-    });
-    
-    form.reset();
+    setIsSubmitting(true);
+
+    try {
+      const { data: response, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: data.name,
+          email: data.email,
+          phone: data.phone || "",
+          subject: data.subject,
+          message: data.message,
+          website: data.website,
+        }
+      });
+
+      if (error) {
+        console.error("Erreur lors de l'envoi:", error);
+        toast({
+          title: "Erreur d'envoi",
+          description: "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      toast({
+        title: "Message envoyé !",
+        description: "Nous vous répondrons dans les plus brefs délais. Un email de confirmation vous a été envoyé.",
+      });
+      
+      form.reset();
+    } catch (error) {
+      console.error("Erreur:", error);
+      toast({
+        title: "Erreur d'envoi",
+        description: "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -347,10 +382,10 @@ const Contact = () => {
                       <Button 
                         type="submit" 
                         size="lg"
-                        disabled={form.formState.isSubmitting}
+                        disabled={isSubmitting}
                         className="w-full md:w-auto bg-gradient-to-r from-primary via-accent to-secondary hover:shadow-xl hover:shadow-accent/20 hover:-translate-y-1 transition-all duration-300 text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        {form.formState.isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+                        {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
                       </Button>
                     </form>
                   </Form>
