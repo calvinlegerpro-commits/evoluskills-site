@@ -16,7 +16,7 @@ const CGV = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">Conditions Générales de Vente</h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            Nos conditions générales de vente pour nos formations professionnelles
+            Conditions générales de vente et d&apos;utilisation
           </p>
         </div>
         
@@ -30,133 +30,379 @@ const CGV = () => {
 
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <Card className="border-0 shadow-md overflow-hidden animate-fade-in">
-            <CardHeader>
-              <CardTitle>1. Objet</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4 text-muted-foreground">
+          
+          {/* Parties */}
+          <Card className="border-0 shadow-md overflow-hidden bg-accent/5 animate-fade-in">
+            <CardContent className="pt-6 space-y-4">
+              <p className="font-medium">
+                Entre la société <strong>FormaSkills</strong>, organisme de formation professionnelle, dont le siège social est situé à Paris, France,
+              </p>
               <p>
-                Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre FormaSkills, 
-                organisme de formation professionnelle, et toute personne physique ou morale souhaitant bénéficier des 
-                formations proposées.
+                Tél : <a href="tel:+33695027611" className="text-accent hover:underline">+33 6 95 02 76 11</a><br />
+                Email : <a href="mailto:contact@formaskills.pro" className="text-accent hover:underline">contact@formaskills.pro</a>
+              </p>
+              <p className="font-medium">Ci-après désignée « le Prestataire » ou « FormaSkills », d&apos;une part ;</p>
+              <p className="font-medium">Et</p>
+              <p>La personne physique ou morale procédant à l&apos;achat et à l&apos;utilisation des services de formation de FormaSkills,</p>
+              <p className="font-medium">Ci-après désignée « le Client » ou « le Stagiaire », d&apos;autre part ;</p>
+              <p className="text-sm text-muted-foreground mt-4">
+                FormaSkills et le Client sont ci-après désignés collectivement « les Parties ».
               </p>
             </CardContent>
           </Card>
 
+          {/* Préambule */}
+          <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.05s' }}>
+            <CardHeader>
+              <CardTitle>Préambule</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                FormaSkills est un organisme de formation professionnelle spécialisé dans la communication digitale et la maîtrise des réseaux sociaux, proposant des formations en ligne et en présentiel destinées aux professionnels et aux entreprises.
+              </p>
+              <p>
+                La liste et le descriptif des formations proposées par FormaSkills peuvent être consultés sur le site <a href="https://formaskills.pro" className="text-accent hover:underline">formaskills.pro</a>.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Article 1 */}
           <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.1s' }}>
             <CardHeader>
-              <CardTitle>2. Inscription et modalités</CardTitle>
+              <CardTitle>Article 1 : Objet</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                L'inscription à une formation devient définitive après :
-              </p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>Réception du bulletin d'inscription dûment complété et signé</li>
-                <li>Validation du dossier de financement (CPF, OPCO, ou autre)</li>
-                <li>Confirmation écrite de FormaSkills</li>
-              </ul>
-              <p>
-                FormaSkills se réserve le droit d'annuler ou de reporter une formation si le nombre minimum 
-                de participants n'est pas atteint.
+                Les présentes Conditions Générales de Vente et d&apos;Utilisation (CGV/CGU) déterminent les droits et obligations des Parties dans le cadre de la vente et de la fourniture des services de formation professionnelle proposés par FormaSkills, ainsi que les modalités d&apos;accès et d&apos;utilisation par le Client à ces services.
               </p>
             </CardContent>
           </Card>
 
+          {/* Article 2 */}
+          <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.15s' }}>
+            <CardHeader>
+              <CardTitle>Article 2 : Dispositions générales</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                Les présentes CGV/CGU s&apos;appliquent à toutes les ventes et prestations de services de formation effectuées par FormaSkills, que ce soit en ligne ou en présentiel.
+              </p>
+              <p>
+                FormaSkills se réserve la possibilité de modifier les présentes à tout moment, par la publication d&apos;une nouvelle version sur son site Internet. Les CGV/CGU applicables sont celles en vigueur à la date de la commande ou de l&apos;inscription.
+              </p>
+              <p>
+                Le Client déclare avoir pris connaissance de l&apos;ensemble des présentes Conditions Générales de Vente et d&apos;Utilisation, et les accepter sans restriction ni réserve.
+              </p>
+              <p>
+                Le Client reconnaît qu&apos;il a bénéficié des conseils et informations nécessaires afin de s&apos;assurer de l&apos;adéquation de l&apos;offre à ses besoins.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Article 3 */}
           <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <CardHeader>
-              <CardTitle>3. Tarifs et modalités de paiement</CardTitle>
+              <CardTitle>Article 3 : Description des services de formation</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
+              <p className="font-semibold text-foreground">3.1 Nature des formations</p>
               <p>
-                Les tarifs des formations sont indiqués en euros TTC. Ils incluent la documentation pédagogique 
-                et l'accès à la plateforme de formation en ligne le cas échéant.
-              </p>
-              <p>
-                Les formations peuvent être financées par :
+                Les formations proposées par FormaSkills consistent en des modules de formation professionnelle en communication digitale et réseaux sociaux, dispensés sous forme de :
               </p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Le Compte Personnel de Formation (CPF)</li>
-                <li>Les OPCO (Opérateurs de Compétences)</li>
-                <li>Le financement personnel</li>
-                <li>Le financement par l'employeur</li>
+                <li>Sessions en présentiel ou distanciel (visioconférence)</li>
+                <li>Contenus e-learning accessibles en ligne</li>
+                <li>Accompagnement personnalisé</li>
+                <li>Supports pédagogiques et ressources documentaires</li>
               </ul>
+              
+              <p className="font-semibold text-foreground mt-6">3.2 Caractéristiques des formations</p>
+              <p>Chaque formation fait l&apos;objet d&apos;un descriptif mentionnant :</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>L&apos;intitulé et les objectifs pédagogiques</li>
+                <li>La durée et le calendrier</li>
+                <li>Les prérequis nécessaires</li>
+                <li>Les modalités d&apos;évaluation</li>
+                <li>Le tarif applicable</li>
+                <li>Les modalités de certification le cas échéant</li>
+              </ul>
+
+              <p className="font-semibold text-foreground mt-6">3.3 Durée d&apos;accès</p>
+              <p>
+                Pour les formations en e-learning, sauf dispositions particulières, l&apos;accès aux contenus est concédé pour une durée de 12 mois à compter de la date d&apos;ouverture des accès, ou pour la durée mentionnée dans la convention de formation.
+              </p>
+
+              <p className="font-semibold text-foreground mt-6">3.4 Certification</p>
+              <p>
+                Une attestation de formation est délivrée à l&apos;issue de chaque formation suivie dans son intégralité. Pour les formations certifiantes (RS7200), un certificat est délivré après validation des compétences selon les modalités d&apos;évaluation prévues.
+              </p>
             </CardContent>
           </Card>
 
+          {/* Article 4 */}
+          <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.25s' }}>
+            <CardHeader>
+              <CardTitle>Article 4 : Tarifs et modalités de paiement</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                Les tarifs des formations sont indiqués en euros TTC et sont consultables sur le site formaskills.pro ou communiqués sur devis.
+              </p>
+              <p>
+                FormaSkills se réserve le droit de modifier ses tarifs à tout moment. Les tarifs applicables sont ceux en vigueur au moment de l&apos;inscription.
+              </p>
+              <p className="font-semibold text-foreground">Modes de financement acceptés :</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Compte Personnel de Formation (CPF)</li>
+                <li>Financement par les OPCO (Opérateurs de Compétences)</li>
+                <li>Paiement direct (carte bancaire, virement, chèque)</li>
+                <li>Prise en charge par l&apos;employeur</li>
+              </ul>
+              <p>
+                Le règlement par carte bancaire est sécurisé. Les informations transmises sont chiffrées selon les standards de sécurité en vigueur.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Article 5 */}
           <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <CardHeader>
-              <CardTitle>4. Annulation et report</CardTitle>
+              <CardTitle>Article 5 : Inscription et conclusion du contrat</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
+              <p>L&apos;inscription à une formation nécessite les étapes suivantes :</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Consultation du programme de formation</li>
+                <li>Demande d&apos;inscription via le formulaire en ligne ou par contact direct</li>
+                <li>Transmission des informations personnelles nécessaires</li>
+                <li>Acceptation des présentes CGV/CGU</li>
+                <li>Signature de la convention de formation</li>
+                <li>Validation du financement et paiement</li>
+              </ul>
               <p>
-                <strong>Par le stagiaire :</strong> Toute annulation doit être notifiée par écrit. 
-                En cas d'annulation moins de 7 jours avant le début de la formation, des frais d'annulation 
-                peuvent être appliqués selon les modalités de financement.
+                L&apos;inscription devient définitive après réception de la convention de formation signée et validation du financement. FormaSkills confirme l&apos;inscription par email.
               </p>
               <p>
-                <strong>Par FormaSkills :</strong> En cas d'annulation du fait de FormaSkills, le stagiaire 
-                sera intégralement remboursé des sommes versées ou un report sera proposé.
+                FormaSkills se réserve le droit de refuser une inscription pour tout motif légitime, notamment en cas de prérequis non satisfaits ou de nombre de participants atteint.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          {/* Article 6 */}
+          <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.35s' }}>
             <CardHeader>
-              <CardTitle>5. Obligations du stagiaire</CardTitle>
+              <CardTitle>Article 6 : Rétractation et annulation</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
+              <p className="font-semibold text-foreground">6.1 Droit de rétractation</p>
               <p>
-                Le stagiaire s'engage à :
+                Conformément à la législation en vigueur, le Client dispose d&apos;un délai de rétractation de 14 jours à compter de la signature de la convention de formation, sauf si la formation a débuté avec son accord exprès avant l&apos;expiration de ce délai.
+              </p>
+              
+              <p className="font-semibold text-foreground mt-4">6.2 Annulation par le Client</p>
+              <p>
+                Toute annulation doit être notifiée par écrit (email ou courrier). En cas d&apos;annulation après le délai de rétractation et moins de 7 jours avant le début de la formation, des frais d&apos;annulation peuvent être appliqués selon les modalités suivantes :
               </p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Respecter le règlement intérieur de l'organisme de formation</li>
-                <li>Être assidu et ponctuel aux sessions de formation</li>
-                <li>Effectuer les travaux demandés par le formateur</li>
-                <li>Passer les évaluations prévues dans le cadre de la formation</li>
+                <li>Plus de 30 jours avant : remboursement intégral ou report</li>
+                <li>Entre 7 et 30 jours avant : 50% du montant dû</li>
+                <li>Moins de 7 jours avant : 100% du montant dû</li>
               </ul>
+
+              <p className="font-semibold text-foreground mt-4">6.3 Annulation par FormaSkills</p>
+              <p>
+                FormaSkills se réserve le droit d&apos;annuler ou de reporter une formation en cas de force majeure ou si le nombre minimum de participants n&apos;est pas atteint. Dans ce cas, le Client sera informé au plus tard 7 jours avant la date prévue et pourra choisir entre un remboursement intégral ou un report.
+              </p>
             </CardContent>
           </Card>
 
+          {/* Article 7 */}
+          <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <CardHeader>
+              <CardTitle>Article 7 : Modalités d&apos;accès aux formations</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p className="font-semibold text-foreground">7.1 Formations en présentiel ou distanciel</p>
+              <p>
+                Les coordonnées du lieu de formation ou le lien de connexion pour les formations en distanciel sont communiqués au Client au moins 48 heures avant le début de la formation.
+              </p>
+              
+              <p className="font-semibold text-foreground mt-4">7.2 Formations e-learning</p>
+              <p>
+                L&apos;accès à la plateforme de formation en ligne est fourni par email après validation de l&apos;inscription. Le Client reçoit un identifiant et un mot de passe personnels et confidentiels.
+              </p>
+              <p>
+                Ces identifiants sont strictement personnels et ne peuvent être cédés, partagés ou revendus. Toute utilisation frauduleuse engage la responsabilité du Client.
+              </p>
+              <p>
+                En cas de perte ou vol des identifiants, le Client doit en informer immédiatement FormaSkills.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Article 8 */}
+          <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.45s' }}>
+            <CardHeader>
+              <CardTitle>Article 8 : Obligations du stagiaire</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>Le Client s&apos;engage à :</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Respecter le règlement intérieur de l&apos;organisme de formation</li>
+                <li>Être assidu et ponctuel aux sessions programmées</li>
+                <li>Participer activement aux formations et réaliser les travaux demandés</li>
+                <li>Passer les évaluations prévues dans le cadre du parcours de formation</li>
+                <li>Ne pas perturber le bon déroulement de la formation</li>
+                <li>Respecter les autres participants et les formateurs</li>
+                <li>Fournir des informations exactes lors de son inscription</li>
+              </ul>
+              <p>
+                Tout manquement grave à ces obligations peut entraîner l&apos;exclusion du stagiaire sans remboursement.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Article 9 */}
           <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.5s' }}>
             <CardHeader>
-              <CardTitle>6. Propriété intellectuelle</CardTitle>
+              <CardTitle>Article 9 : Propriété intellectuelle</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Tous les supports de formation restent la propriété exclusive de FormaSkills. Toute reproduction, 
-                diffusion ou utilisation commerciale sans autorisation préalable est interdite.
+                L&apos;ensemble des contenus de formation (supports pédagogiques, vidéos, documents, exercices, etc.) sont la propriété exclusive de FormaSkills et sont protégés par le droit d&apos;auteur.
+              </p>
+              <p>
+                Le Client s&apos;interdit de reproduire, modifier, traduire, adapter, distribuer ou exploiter commercialement tout ou partie des contenus sans autorisation écrite préalable de FormaSkills.
+              </p>
+              <p>
+                Les supports de formation sont fournis au Client à titre personnel dans le cadre exclusif de sa formation et ne peuvent être diffusés à des tiers.
               </p>
             </CardContent>
           </Card>
 
+          {/* Article 10 */}
+          <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.55s' }}>
+            <CardHeader>
+              <CardTitle>Article 10 : Protection des données personnelles</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                Conformément au Règlement Général sur la Protection des Données (RGPD), FormaSkills collecte et traite les données personnelles du Client dans le cadre de la gestion des formations.
+              </p>
+              <p>
+                Les données collectées sont nécessaires à la gestion administrative et pédagogique des formations, ainsi qu&apos;au respect des obligations légales et réglementaires en matière de formation professionnelle.
+              </p>
+              <p>
+                Le Client dispose d&apos;un droit d&apos;accès, de rectification, de suppression et de portabilité de ses données personnelles. Il peut exercer ces droits en contactant FormaSkills à l&apos;adresse : contact@formaskills.pro.
+              </p>
+              <p>
+                Les données sont conservées pendant la durée nécessaire à l&apos;accomplissement des finalités pour lesquelles elles ont été collectées et conformément aux obligations légales de conservation.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Article 11 */}
           <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <CardHeader>
-              <CardTitle>7. Protection des données personnelles</CardTitle>
+              <CardTitle>Article 11 : Responsabilités et garanties</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
+              <p className="font-semibold text-foreground">11.1 Responsabilité de FormaSkills</p>
               <p>
-                Conformément au RGPD, les données personnelles collectées sont utilisées uniquement dans le cadre 
-                de la gestion des formations. Le stagiaire dispose d'un droit d'accès, de rectification et de 
-                suppression de ses données en contactant FormaSkills.
+                FormaSkills s&apos;engage à mettre en œuvre tous les moyens nécessaires pour assurer des formations de qualité conformes aux programmes communiqués.
+              </p>
+              <p>
+                FormaSkills ne saurait être tenu responsable des dommages indirects résultant de l&apos;utilisation ou de l&apos;impossibilité d&apos;utiliser les services de formation, notamment en cas de force majeure ou de défaillance technique indépendante de sa volonté.
+              </p>
+
+              <p className="font-semibold text-foreground mt-4">11.2 Disponibilité de la plateforme e-learning</p>
+              <p>
+                FormaSkills s&apos;engage à faire ses meilleurs efforts pour assurer l&apos;accessibilité de la plateforme de formation en ligne 7j/7 et 24h/24. Toutefois, des interruptions peuvent survenir pour des raisons de maintenance ou de mise à jour.
+              </p>
+              <p>
+                En cas d&apos;indisponibilité supérieure à 48 heures, la durée d&apos;accès sera prolongée d&apos;une période équivalente.
+              </p>
+
+              <p className="font-semibold text-foreground mt-4">11.3 Responsabilité du Client</p>
+              <p>
+                Le Client reconnaît que l&apos;obtention d&apos;une certification ou l&apos;atteinte des objectifs dépend de son investissement personnel et de son assiduité. FormaSkills ne garantit pas l&apos;obtention d&apos;une certification mais s&apos;engage à fournir tous les moyens pédagogiques nécessaires.
               </p>
             </CardContent>
           </Card>
 
+          {/* Article 12 */}
+          <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.65s' }}>
+            <CardHeader>
+              <CardTitle>Article 12 : Force majeure</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                FormaSkills ne pourra être tenu responsable de tout retard ou inexécution résultant d&apos;un cas de force majeure tel que défini par la jurisprudence française, notamment en cas d&apos;épidémie, de catastrophe naturelle, de grève, ou de défaillance des réseaux de communication.
+              </p>
+              <p>
+                En cas de force majeure, FormaSkills s&apos;efforcera de trouver une solution alternative (report, formation à distance, etc.).
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Article 13 */}
           <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.7s' }}>
             <CardHeader>
-              <CardTitle>8. Litiges</CardTitle>
+              <CardTitle>Article 13 : Réclamations et médiation</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                En cas de litige, une solution amiable sera recherchée avant toute action judiciaire. 
-                À défaut, le tribunal compétent sera celui du siège social de FormaSkills.
+                Pour toute réclamation, le Client peut contacter FormaSkills par email à contact@formaskills.pro ou par téléphone au +33 6 95 02 76 11.
+              </p>
+              <p>
+                En cas de litige, les Parties s&apos;efforceront de trouver une solution amiable. À défaut d&apos;accord amiable, le Client peut recourir gratuitement à un médiateur de la consommation.
               </p>
             </CardContent>
           </Card>
 
-          <div className="text-sm text-muted-foreground text-center pt-8 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>
+          {/* Article 14 */}
+          <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.75s' }}>
+            <CardHeader>
+              <CardTitle>Article 14 : Droit applicable et juridiction</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                Les présentes CGV/CGU sont soumises au droit français.
+              </p>
+              <p>
+                En cas de litige et à défaut de résolution amiable, les tribunaux français seront seuls compétents. Pour les litiges avec des consommateurs, le tribunal compétent sera celui du lieu de domicile du Client ou celui du siège social de FormaSkills.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Article 15 */}
+          <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            <CardHeader>
+              <CardTitle>Article 15 : Dispositions finales</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                Si une ou plusieurs stipulations des présentes CGV/CGU sont tenues pour non valides ou déclarées comme telles en application d&apos;une loi, d&apos;un règlement ou à la suite d&apos;une décision définitive d&apos;une juridiction compétente, les autres stipulations garderont toute leur force et leur portée.
+              </p>
+              <p>
+                Le fait pour FormaSkills de ne pas se prévaloir à un moment donné de l&apos;une quelconque des clauses des présentes CGV/CGU ne peut être interprété comme valant renonciation à se prévaloir ultérieurement de l&apos;une quelconque desdites clauses.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Footer */}
+          <div className="text-center pt-8 space-y-4 animate-fade-in" style={{ animationDelay: '0.85s' }}>
+            <div className="h-px bg-border"></div>
+            <div className="text-sm text-muted-foreground space-y-2">
+              <p className="font-semibold text-foreground">FormaSkills</p>
+              <p>Organisme de formation professionnelle</p>
+              <p>Paris, France</p>
+              <p>
+                Tél : <a href="tel:+33695027611" className="text-accent hover:underline">+33 6 95 02 76 11</a> | 
+                Email : <a href="mailto:contact@formaskills.pro" className="text-accent hover:underline">contact@formaskills.pro</a>
+              </p>
+              <p className="mt-4">Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>
+            </div>
           </div>
         </div>
       </section>
