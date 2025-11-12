@@ -32,7 +32,7 @@ const Formations = () => {
     ],
     program: [
       {
-        title: "Unité 1 : Stratégie réseaux sociaux",
+        title: "Module 1 : Stratégie réseaux sociaux",
         modules: [
           "Comprendre les fondamentaux et le fonctionnement des réseaux sociaux",
           "Définir vos objectifs commerciaux et indicateurs de performance (KPIs)",
@@ -41,7 +41,7 @@ const Formations = () => {
         ],
       },
       {
-        title: "Unité 2 : Plateformes de réseaux sociaux",
+        title: "Module 2 : Plateformes de réseaux sociaux",
         modules: [
           "Analyser les différentes plateformes et leur positionnement",
           "Étudier votre public cible et ses comportements en ligne",
@@ -50,7 +50,7 @@ const Formations = () => {
         ],
       },
       {
-        title: "Unité 3 : Création de page entreprise",
+        title: "Module 3 : Création de page entreprise",
         modules: [
           "Analyser votre présence actuelle sur les réseaux sociaux",
           "Définir votre identité visuelle (couleurs, polices, logo)",
@@ -60,7 +60,7 @@ const Formations = () => {
         ],
       },
       {
-        title: "Unité 4 : Stratégie éditoriale",
+        title: "Module 4 : Stratégie éditoriale",
         modules: [
           "Introduction et importance de la stratégie éditoriale pour les TPE",
           "Analyse de situation : objectifs, forces, faiblesses, opportunités",
@@ -69,7 +69,7 @@ const Formations = () => {
         ],
       },
       {
-        title: "Unité 5 : Animation de pages",
+        title: "Module 5 : Animation de pages",
         modules: [
           "Importance de l'animation et prise en compte de l'accessibilité",
           "Adaptations pour différentes situations de handicap",
@@ -79,7 +79,7 @@ const Formations = () => {
         ],
       },
       {
-        title: "Unité 6 : E-réputation",
+        title: "Module 6 : E-réputation",
         modules: [
           "Enjeux, bénéfices et risques de la e-réputation",
           "Actions publicitaires : types d'annonces, ciblage, mesure d'efficacité",
@@ -191,11 +191,11 @@ const Formations = () => {
                               </div>
                               <div className="flex-1">
                                 <h4 className="font-semibold text-xl mb-3 group-hover:text-accent transition-colors">{unit.title}</h4>
-                                <ul className="space-y-2">
+                                <ul className="space-y-2.5">
                                   {unit.modules.map((module, idx) => (
-                                    <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                                      <span className="text-accent mt-1">•</span>
-                                      <span className="text-sm">{module}</span>
+                                    <li key={idx} className="flex items-start gap-3 text-muted-foreground">
+                                      <span className="text-accent flex-shrink-0 leading-relaxed">•</span>
+                                      <span className="text-sm leading-relaxed">{module}</span>
                                     </li>
                                   ))}
                                 </ul>
