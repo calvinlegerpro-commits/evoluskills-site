@@ -90,6 +90,9 @@ const handler = async (req: Request): Promise<Response> => {
       },
     });
 
+    // Adresse email d'affichage (alias professionnel)
+    const fromEmail = "FormaSkills <contact@formaskills.pro>";
+
     // Template email de notification (pour vous)
     const notificationEmailHTML = `
       <!DOCTYPE html>
@@ -202,7 +205,7 @@ const handler = async (req: Request): Promise<Response> => {
     
     // Envoyer l'email de notification
     await client.send({
-      from: smtpUser,
+      from: fromEmail,
       to: "contact@formaskills.pro",
       subject: `Nouveau contact FormaSkills : ${validatedData.subject}`,
       content: "Version texte brut non disponible",
@@ -215,7 +218,7 @@ const handler = async (req: Request): Promise<Response> => {
     
     // Envoyer l'email de confirmation au client
     await client.send({
-      from: smtpUser,
+      from: fromEmail,
       to: validatedData.email,
       subject: "Confirmation de votre message - FormaSkills",
       content: "Version texte brut non disponible",
