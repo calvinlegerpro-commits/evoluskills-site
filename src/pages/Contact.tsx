@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
@@ -14,6 +15,20 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useState } from "react";
+
+// Liste des pays avec indicatifs
+const countries = [
+  { code: "+33", name: "France", flag: "🇫🇷" },
+  { code: "+32", name: "Belgique", flag: "🇧🇪" },
+  { code: "+41", name: "Suisse", flag: "🇨🇭" },
+  { code: "+352", name: "Luxembourg", flag: "🇱🇺" },
+  { code: "+1", name: "États-Unis / Canada", flag: "🇺🇸" },
+  { code: "+44", name: "Royaume-Uni", flag: "🇬🇧" },
+  { code: "+49", name: "Allemagne", flag: "🇩🇪" },
+  { code: "+34", name: "Espagne", flag: "🇪🇸" },
+  { code: "+39", name: "Italie", flag: "🇮🇹" },
+  { code: "+351", name: "Portugal", flag: "🇵🇹" },
+];
 
 // Schéma de validation Zod sécurisé
 const contactFormSchema = z.object({
@@ -28,9 +43,11 @@ const contactFormSchema = z.object({
     .email("Email invalide")
     .max(255, "L'email est trop long"),
   
+  countryCode: z.string().default("+33"),
+  
   phone: z.string()
     .trim()
-    .regex(/^(\+33|0)[1-9](\d{2}){4}$/, "Numéro de téléphone invalide (format: +33612345678)")
+    .regex(/^0?[1-9](\d{2}){4}$/, "Numéro de téléphone invalide (format: 0612345678 ou 612345678)")
     .optional()
     .or(z.literal("")),
   
@@ -63,6 +80,7 @@ const Contact = () => {
     defaultValues: {
       name: "",
       email: "",
+      countryCode: "+33",
       phone: "",
       subject: "",
       message: "",
@@ -81,11 +99,14 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
+      // Combiner l'indicatif et le numéro
+      const fullPhone = data.phone ? `${data.countryCode}${data.phone.replace(/^0/, '')}` : "";
+      
       const { data: response, error } = await supabase.functions.invoke('send-contact-email', {
         body: {
           name: data.name,
           email: data.email,
-          phone: data.phone || "",
+          phone: fullPhone,
           subject: data.subject,
           message: data.message,
           website: data.website,
@@ -293,44 +314,69 @@ const Contact = () => {
                         />
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <FormField
-                          control={form.control}
-                          name="phone"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Téléphone</FormLabel>
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Téléphone</FormLabel>
+                            <div className="flex gap-2">
+                              <FormField
+                                control={form.control}
+                                name="countryCode"
+                                render={({ field: countryField }) => (
+                                  <FormItem className="w-[140px]">
+                                    <Select
+                                      onValueChange={countryField.onChange}
+                                      defaultValue={countryField.value}
+                                    >
+                                      <FormControl>
+                                        <SelectTrigger className="border-accent/20 focus:border-accent transition-colors">
+                                          <SelectValue />
+                                        </SelectTrigger>
+                                      </FormControl>
+                                      <SelectContent className="bg-popover z-50">
+                                        {countries.map((country) => (
+                                          <SelectItem key={country.code} value={country.code}>
+                                            {country.flag} {country.code}
+                                          </SelectItem>
+                                        ))}
+                                      </SelectContent>
+                                    </Select>
+                                  </FormItem>
+                                )}
+                              />
                               <FormControl>
                                 <Input
                                   type="tel"
-                                  placeholder="+33612345678"
-                                  className="border-accent/20 focus:border-accent transition-colors"
+                                  placeholder="612345678 ou 0612345678"
+                                  className="border-accent/20 focus:border-accent transition-colors flex-1"
                                   {...field}
                                 />
                               </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        
-                        <FormField
-                          control={form.control}
-                          name="subject"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Sujet *</FormLabel>
-                              <FormControl>
-                                <Input
-                                  placeholder="Demande d'information"
-                                  className="border-accent/20 focus:border-accent transition-colors"
-                                  {...field}
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
+                            </div>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="subject"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Sujet *</FormLabel>
+                            <FormControl>
+                              <Input
+                                placeholder="Demande d'information"
+                                className="border-accent/20 focus:border-accent transition-colors"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
                       <FormField
                         control={form.control}
