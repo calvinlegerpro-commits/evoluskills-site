@@ -36,7 +36,7 @@ const CGV = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre FormSkills, 
+                Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre FormaSkills, 
                 organisme de formation professionnelle, et toute personne physique ou morale souhaitant bénéficier des 
                 formations proposées.
               </p>
@@ -54,10 +54,10 @@ const CGV = () => {
               <ul className="list-disc pl-6 space-y-2">
                 <li>Réception du bulletin d'inscription dûment complété et signé</li>
                 <li>Validation du dossier de financement (CPF, OPCO, ou autre)</li>
-                <li>Confirmation écrite de FormSkills</li>
+                <li>Confirmation écrite de FormaSkills</li>
               </ul>
               <p>
-                FormSkills se réserve le droit d'annuler ou de reporter une formation si le nombre minimum 
+                FormaSkills se réserve le droit d'annuler ou de reporter une formation si le nombre minimum 
                 de participants n'est pas atteint.
               </p>
             </CardContent>
@@ -95,7 +95,7 @@ const CGV = () => {
                 peuvent être appliqués selon les modalités de financement.
               </p>
               <p>
-                <strong>Par FormSkills :</strong> En cas d'annulation du fait de FormSkills, le stagiaire 
+                <strong>Par FormaSkills :</strong> En cas d'annulation du fait de FormaSkills, le stagiaire 
                 sera intégralement remboursé des sommes versées ou un report sera proposé.
               </p>
             </CardContent>
@@ -124,7 +124,7 @@ const CGV = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Tous les supports de formation restent la propriété exclusive de FormSkills. Toute reproduction, 
+                Tous les supports de formation restent la propriété exclusive de FormaSkills. Toute reproduction, 
                 diffusion ou utilisation commerciale sans autorisation préalable est interdite.
               </p>
             </CardContent>
@@ -138,7 +138,7 @@ const CGV = () => {
               <p>
                 Conformément au RGPD, les données personnelles collectées sont utilisées uniquement dans le cadre 
                 de la gestion des formations. Le stagiaire dispose d'un droit d'accès, de rectification et de 
-                suppression de ses données en contactant FormSkills.
+                suppression de ses données en contactant FormaSkills.
               </p>
             </CardContent>
           </Card>
@@ -150,7 +150,7 @@ const CGV = () => {
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
                 En cas de litige, une solution amiable sera recherchée avant toute action judiciaire. 
-                À défaut, le tribunal compétent sera celui du siège social de FormSkills.
+                À défaut, le tribunal compétent sera celui du siège social de FormaSkills.
               </p>
             </CardContent>
           </Card>

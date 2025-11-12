@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">FormSkills</h3>
+            <h3 className="text-2xl font-bold mb-4">FormaSkills</h3>
             <p className="text-lg font-semibold text-primary-foreground/90 mb-2">
               Se former pour l'avenir
             </p>
@@ -80,7 +80,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-primary-foreground/60">
-          <p>&copy; {new Date().getFullYear()} FormSkills. Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()} FormaSkills. Tous droits réservés.</p>
         </div>
       </div>
     </footer>

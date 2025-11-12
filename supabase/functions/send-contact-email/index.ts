@@ -112,7 +112,7 @@ const handler = async (req: Request): Promise<Response> => {
         <div class="container">
           <div class="header">
             <h1>📬 Nouveau message de contact</h1>
-            <p style="margin: 5px 0 0 0; opacity: 0.9;">FormSkills</p>
+            <p style="margin: 5px 0 0 0; opacity: 0.9;">FormaSkills</p>
           </div>
           <div class="content">
             <div class="field">
@@ -139,7 +139,7 @@ const handler = async (req: Request): Promise<Response> => {
             </div>
           </div>
           <div class="footer">
-            <p>Ce message a été envoyé depuis le formulaire de contact FormSkills</p>
+            <p>Ce message a été envoyé depuis le formulaire de contact FormaSkills</p>
             <p style="margin: 5px 0 0 0;">🕒 ${new Date().toLocaleString('fr-FR')}</p>
           </div>
         </div>
@@ -168,7 +168,7 @@ const handler = async (req: Request): Promise<Response> => {
         <div class="container">
           <div class="header">
             <h1>✅ Message bien reçu !</h1>
-            <p style="margin: 10px 0 0 0; opacity: 0.9;">FormSkills</p>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">FormaSkills</p>
           </div>
           <div class="content">
             <p>Bonjour <strong>${validatedData.name}</strong>,</p>
@@ -187,10 +187,10 @@ const handler = async (req: Request): Promise<Response> => {
               <li>📞 <a href="tel:+33695027611" style="color: #3b82f6;">+33 6 95 02 76 11</a></li>
             </ul>
             
-            <p style="margin-top: 30px;">Merci de votre confiance,<br><strong>L'équipe FormSkills</strong></p>
+            <p style="margin-top: 30px;">Merci de votre confiance,<br><strong>L'équipe FormaSkills</strong></p>
           </div>
           <div class="footer">
-            <p>FormSkills - Formation professionnelle</p>
+            <p>FormaSkills - Formation professionnelle</p>
             <p style="margin: 5px 0;">Paris, France</p>
           </div>
         </div>
@@ -204,7 +204,7 @@ const handler = async (req: Request): Promise<Response> => {
     await client.send({
       from: smtpUser,
       to: "contact@formaskills.pro",
-      subject: `Nouveau contact FormSkills : ${validatedData.subject}`,
+      subject: `Nouveau contact FormaSkills : ${validatedData.subject}`,
       content: "Version texte brut non disponible",
       html: notificationEmailHTML,
     });
@@ -217,7 +217,7 @@ const handler = async (req: Request): Promise<Response> => {
     await client.send({
       from: smtpUser,
       to: validatedData.email,
-      subject: "Confirmation de votre message - FormSkills",
+      subject: "Confirmation de votre message - FormaSkills",
       content: "Version texte brut non disponible",
       html: confirmationEmailHTML,
     });

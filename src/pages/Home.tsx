@@ -163,7 +163,7 @@ const Home = () => {
               Prêt à transformer<br />votre carrière ?
             </h2>
             <p className="text-xl mb-10 text-primary-foreground/90 font-light">
-              Rejoignez des centaines de professionnels qui ont<br />déjà boosté leurs compétences avec FormSkills
+              Rejoignez des centaines de professionnels qui ont<br />déjà boosté leurs compétences avec FormaSkills
             </p>
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-2xl hover:shadow-accent/50 rounded-full px-10 hover:scale-110 transition-all animate-float">
               <Link to="/formations">Voir toutes les formations</Link>

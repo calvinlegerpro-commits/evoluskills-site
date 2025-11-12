@@ -36,7 +36,7 @@ const MentionsLegales = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                <strong>Raison sociale :</strong> FormSkills
+                <strong>Raison sociale :</strong> FormaSkills
               </p>
               <p>
                 <strong>Forme juridique :</strong> [À compléter - SARL, SAS, etc.]
@@ -65,7 +65,7 @@ const MentionsLegales = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Le directeur de la publication du site est [Nom du dirigeant], en sa qualité de représentant légal de FormSkills.
+                Le directeur de la publication du site est [Nom du dirigeant], en sa qualité de représentant légal de FormaSkills.
               </p>
             </CardContent>
           </Card>
@@ -118,7 +118,7 @@ const MentionsLegales = () => {
               <ul className="list-disc pl-6 space-y-2">
                 <li>Par email : contact@formaskills.pro</li>
                 <li>Par téléphone : +33 6 95 02 76 11</li>
-                <li>Par courrier : FormSkills, Paris, France</li>
+                <li>Par courrier : FormaSkills, Paris, France</li>
               </ul>
               <p>
                 Les données collectées sur ce site sont utilisées uniquement dans le cadre de la gestion des 
@@ -146,7 +146,7 @@ const MentionsLegales = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                FormSkills est certifié Qualiopi, certification qualité des organismes de formation professionnelle.
+                FormaSkills est certifié Qualiopi, certification qualité des organismes de formation professionnelle.
               </p>
               <p>
                 <strong>Numéro de certification :</strong> [À compléter]
@@ -164,7 +164,7 @@ const MentionsLegales = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Le site peut contenir des liens hypertextes vers d'autres sites. FormSkills ne saurait être 
+                Le site peut contenir des liens hypertextes vers d'autres sites. FormaSkills ne saurait être 
                 tenu responsable du contenu de ces sites externes.
               </p>
             </CardContent>
