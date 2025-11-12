@@ -36,25 +36,40 @@ const MentionsLegales = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                <strong>Raison sociale :</strong> FormaSkills
+                <strong>Raison sociale :</strong> FORMASKILLS
               </p>
               <p>
-                <strong>Forme juridique :</strong> [À compléter - SARL, SAS, etc.]
+                <strong>Forme juridique :</strong> SASU (Société par Actions Simplifiée Unipersonnelle)
               </p>
               <p>
-                <strong>Siège social :</strong> Paris, France
+                <strong>Capital social :</strong> [À compléter]
               </p>
               <p>
-                <strong>Numéro de SIRET :</strong> [À compléter]
+                <strong>Siège social :</strong> 32 rue de Paris, 92100 Boulogne-Billancourt
               </p>
               <p>
-                <strong>Numéro de déclaration d'activité :</strong> [À compléter]
+                <strong>SIREN :</strong> 941 048 019
               </p>
               <p>
-                <strong>Email :</strong> contact@formaskills.pro
+                <strong>SIRET :</strong> 941 048 019 00017
               </p>
               <p>
-                <strong>Téléphone :</strong> +33 6 95 02 76 11
+                <strong>RCS :</strong> Nanterre
+              </p>
+              <p>
+                <strong>Numéro de TVA intracommunautaire :</strong> FR03941048019
+              </p>
+              <p>
+                <strong>Numéro de déclaration d&apos;activité de formation :</strong> [À compléter auprès de la DREETS]
+              </p>
+              <p>
+                <strong>Code APE/NAF :</strong> 8559A - Formation continue d&apos;adultes
+              </p>
+              <p>
+                <strong>Email :</strong> <a href="mailto:contact@formaskills.pro" className="text-accent hover:underline">contact@formaskills.pro</a>
+              </p>
+              <p>
+                <strong>Téléphone :</strong> <a href="tel:+33695027611" className="text-accent hover:underline">+33 6 95 02 76 11</a>
               </p>
             </CardContent>
           </Card>
@@ -65,7 +80,7 @@ const MentionsLegales = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Le directeur de la publication du site est [Nom du dirigeant], en sa qualité de représentant légal de FormaSkills.
+                Le directeur de la publication du site est le représentant légal de FORMASKILLS, en sa qualité de Président de la société.
               </p>
             </CardContent>
           </Card>
@@ -76,11 +91,12 @@ const MentionsLegales = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Le site est hébergé par :
+                Le site formaskills.pro est hébergé par :
               </p>
               <p>
                 <strong>Lovable</strong><br />
-                [Adresse de l'hébergeur]
+                Plateforme de développement et d&apos;hébergement web<br />
+                <a href="https://lovable.dev" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">https://lovable.dev</a>
               </p>
             </CardContent>
           </Card>
@@ -129,31 +145,46 @@ const MentionsLegales = () => {
 
           <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.5s' }}>
             <CardHeader>
-              <CardTitle>6. Cookies</CardTitle>
+              <CardTitle>6. Cookies et traceurs</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Ce site peut utiliser des cookies pour améliorer l'expérience utilisateur. Vous pouvez 
-                configurer votre navigateur pour refuser les cookies, mais certaines fonctionnalités du site 
-                pourraient ne pas être disponibles.
+                Ce site peut utiliser des cookies et autres traceurs pour améliorer l&apos;expérience utilisateur, établir des statistiques de fréquentation et garantir le bon fonctionnement du site.
+              </p>
+              <p>
+                Conformément à la réglementation en vigueur, vous êtes informé de l&apos;utilisation de ces cookies lors de votre première visite et pouvez paramétrer leur utilisation.
+              </p>
+              <p>
+                Vous pouvez à tout moment configurer votre navigateur pour refuser les cookies, mais certaines fonctionnalités du site pourraient ne pas être disponibles.
               </p>
             </CardContent>
           </Card>
 
           <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <CardHeader>
-              <CardTitle>7. Certification Qualiopi</CardTitle>
+              <CardTitle>7. Certification et agrément de formation</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                FormaSkills est certifié Qualiopi, certification qualité des organismes de formation professionnelle.
+                FORMASKILLS est un organisme de formation professionnelle déclaré auprès de la Direction Régionale de l&apos;Économie, de l&apos;Emploi, du Travail et des Solidarités (DREETS).
               </p>
               <p>
-                <strong>Numéro de certification :</strong> [À compléter]
+                <strong>Numéro de déclaration d&apos;activité :</strong> [En cours d&apos;obtention - numéro attribué par la DREETS après premier bilan pédagogique et financier]
               </p>
               <p>
-                Cette certification atteste de la qualité du processus mis en œuvre par les organismes de formation 
-                et permet la prise en charge des formations par les financeurs publics et mutualisés.
+                Cette déclaration ne vaut pas agrément de l&apos;État, conformément à l&apos;article L.6352-12 du Code du travail.
+              </p>
+              <p className="mt-4">
+                <strong>Certification Qualiopi :</strong> [En cours d&apos;obtention]
+              </p>
+              <p>
+                La certification Qualiopi atteste de la qualité du processus mis en œuvre par les organismes de formation et permet la prise en charge des formations par les financeurs publics et mutualisés (CPF, OPCO, etc.).
+              </p>
+              <p className="mt-4">
+                <strong>Certification inscrite au Répertoire Spécifique :</strong>
+              </p>
+              <p>
+                Code RS7200 - "Maîtriser les réseaux sociaux et en faire un levier de développement et de visibilité de son entreprise"
               </p>
             </CardContent>
           </Card>
@@ -164,26 +195,81 @@ const MentionsLegales = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Le site peut contenir des liens hypertextes vers d'autres sites. FormaSkills ne saurait être 
-                tenu responsable du contenu de ces sites externes.
+                Le site formaskills.pro peut contenir des liens hypertextes vers d&apos;autres sites Internet. FORMASKILLS ne saurait être tenu responsable du contenu de ces sites externes ni des éventuels dommages résultant de leur consultation.
+              </p>
+              <p>
+                La mise en place de liens hypertextes vers le site formaskills.pro nécessite une autorisation préalable écrite.
               </p>
             </CardContent>
           </Card>
 
           <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.8s' }}>
             <CardHeader>
-              <CardTitle>9. Droit applicable</CardTitle>
+              <CardTitle>9. Responsabilité et garanties</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Le présent site et les présentes mentions légales sont soumis au droit français. 
-                En cas de litige, les tribunaux français seront seuls compétents.
+                FORMASKILLS s&apos;efforce d&apos;assurer l&apos;exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, FORMASKILLS ne peut garantir l&apos;exactitude, la précision ou l&apos;exhaustivité des informations mises à disposition sur ce site.
+              </p>
+              <p>
+                FORMASKILLS ne saurait être tenu responsable des erreurs, d&apos;omissions ou des résultats qui pourraient être obtenus par un mauvais usage de ces informations.
+              </p>
+              <p>
+                L&apos;accès au site peut être interrompu pour des raisons de maintenance ou de mise à jour, ou pour toute autre raison technique. FORMASKILLS ne saurait être tenu responsable des interruptions et des conséquences qui peuvent en découler pour l&apos;utilisateur.
               </p>
             </CardContent>
           </Card>
 
-          <div className="text-sm text-muted-foreground text-center pt-8 animate-fade-in" style={{ animationDelay: '0.9s' }}>
-            <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>
+          <Card className="border-0 shadow-md overflow-hidden animate-fade-in" style={{ animationDelay: '0.9s' }}>
+            <CardHeader>
+              <CardTitle>10. Droit applicable et juridiction compétente</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                Les présentes mentions légales sont soumises au droit français.
+              </p>
+              <p>
+                En cas de litige relatif à l&apos;interprétation ou à l&apos;exécution des présentes, et à défaut d&apos;accord amiable, les tribunaux français seront seuls compétents pour en connaître.
+              </p>
+              <p>
+                Pour les litiges avec des consommateurs, le tribunal compétent sera celui du lieu de domicile du consommateur ou celui du siège social de FORMASKILLS.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-0 shadow-md overflow-hidden bg-accent/5 animate-fade-in" style={{ animationDelay: '1s' }}>
+            <CardHeader>
+              <CardTitle>11. Contact</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-muted-foreground">
+              <p>
+                Pour toute question concernant les présentes mentions légales ou pour exercer vos droits, vous pouvez nous contacter :
+              </p>
+              <div className="space-y-2 pl-4">
+                <p>
+                  <strong>Par email :</strong> <a href="mailto:contact@formaskills.pro" className="text-accent hover:underline">contact@formaskills.pro</a>
+                </p>
+                <p>
+                  <strong>Par téléphone :</strong> <a href="tel:+33695027611" className="text-accent hover:underline">+33 6 95 02 76 11</a>
+                </p>
+                <p>
+                  <strong>Par courrier :</strong><br />
+                  FORMASKILLS<br />
+                  32 rue de Paris<br />
+                  92100 Boulogne-Billancourt
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="text-center pt-8 space-y-4 animate-fade-in" style={{ animationDelay: '1.1s' }}>
+            <div className="h-px bg-border"></div>
+            <p className="text-sm text-muted-foreground">
+              Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}
+            </p>
+            <p className="text-xs text-muted-foreground">
+              FORMASKILLS - SIREN 941 048 019 - RCS Nanterre
+            </p>
           </div>
         </div>
       </section>
