@@ -349,7 +349,7 @@ const Contact = () => {
                               <FormControl>
                                 <Input
                                   type="tel"
-                                  placeholder="612345678 ou 0612345678"
+                                  placeholder="Saisir votre numéro"
                                   className="border-accent/20 focus:border-accent transition-colors flex-1"
                                   {...field}
                                 />
