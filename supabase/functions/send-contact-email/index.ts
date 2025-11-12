@@ -257,11 +257,7 @@ const handler = async (req: Request): Promise<Response> => {
       to: "contact@formaskills.pro",
       subject: `Nouveau contact FormaSkills : ${validatedData.subject}`,
       content: "Version texte brut non disponible",
-      html: notificationEmailHTML,
-      headers: {
-        "Content-Type": "text/html; charset=UTF-8",
-        "Content-Transfer-Encoding": "quoted-printable"
-      }
+      html: notificationEmailHTML
     });
 
     console.log("✅ Email de notification envoyé avec succès");
@@ -274,11 +270,7 @@ const handler = async (req: Request): Promise<Response> => {
       to: validatedData.email,
       subject: "Confirmation de votre message - FormaSkills",
       content: "Version texte brut non disponible",
-      html: confirmationEmailHTML,
-      headers: {
-        "Content-Type": "text/html; charset=UTF-8",
-        "Content-Transfer-Encoding": "quoted-printable"
-      }
+      html: confirmationEmailHTML
     });
 
     console.log("✅ Email de confirmation envoyé avec succès");
