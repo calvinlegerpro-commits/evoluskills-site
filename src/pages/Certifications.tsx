@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Award, CheckCircle2, Calendar, Building2, GraduationCap, Target, FileText, Users } from "lucide-react";
+import { Award, CheckCircle2, Calendar, GraduationCap, Target, FileText, Users } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -12,7 +12,6 @@ const Certifications = () => {
     status: "Active",
     registrationDate: "08-02-2025",
     expiryDate: "08-02-2028",
-    certifier: "ELYSEES CONSULTANTS FORMATION",
     level: "Sans niveau spécifique",
     category: "Formation continue",
     
@@ -143,15 +142,7 @@ const Certifications = () => {
             </CardHeader>
             
             <CardContent className="pt-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="flex items-start gap-3 p-4 rounded-xl bg-accent/5 hover:bg-accent/10 transition-colors">
-                  <Building2 className="text-accent flex-shrink-0 mt-1" size={20} />
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">Certificateur</p>
-                    <p className="font-semibold text-sm">{certification.certifier}</p>
-                  </div>
-                </div>
-                
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex items-start gap-3 p-4 rounded-xl bg-accent/5 hover:bg-accent/10 transition-colors">
                   <GraduationCap className="text-accent flex-shrink-0 mt-1" size={20} />
                   <div>
