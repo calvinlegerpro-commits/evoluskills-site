@@ -99,50 +99,51 @@ const Formations = () => {
               {formations.map((formation, index) => {
                 const DomainIcon = iconMap[formation.domains?.icon || "BookOpen"] || BookOpen;
                 return (
-                  <Card
-                    key={formation.id}
-                    className="border-primary/10 hover:border-accent/50 transition-all group hover:shadow-2xl backdrop-blur-sm bg-card/80 rounded-3xl animate-scale-in overflow-hidden"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    {formation.image_url && (
-                      <div className="aspect-video overflow-hidden">
-                        <img src={formation.image_url} alt={formation.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                      </div>
-                    )}
-                    <CardHeader>
-                      <div className="flex flex-wrap gap-2 mb-2">
-                        <Badge className="bg-accent/10 text-accent border-0 gap-1">
-                          <DomainIcon size={12} />
-                          {formation.domains?.name}
-                        </Badge>
-                        {formation.cpf_eligible && (
-                          <Badge variant="outline" className="border-secondary/30 text-secondary">CPF</Badge>
-                        )}
-                        {formation.level && (
-                          <Badge variant="outline">{formation.level}</Badge>
-                        )}
-                      </div>
-                      <CardTitle className="text-xl group-hover:text-accent transition-colors">{formation.title}</CardTitle>
-                      <CardDescription>{formation.short_description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex items-center justify-between text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <Clock size={14} />
-                          <span>{formation.duration || "À définir"}</span>
-                        </div>
-                        {formation.price && (
-                          <span className="font-bold text-accent text-lg">{formation.price}€</span>
-                        )}
-                      </div>
-                      {formation.certification && (
-                        <div className="flex items-center gap-1 mt-3 text-sm text-muted-foreground">
-                          <Award size={14} className="text-secondary" />
-                          <span>{formation.certification}</span>
+                  <Link to={`/formations/${formation.slug}`} key={formation.id} className="block">
+                    <Card
+                      className="border-primary/10 hover:border-accent/50 transition-all group hover:shadow-2xl backdrop-blur-sm bg-card/80 rounded-3xl animate-scale-in overflow-hidden"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      {formation.image_url && (
+                        <div className="aspect-video overflow-hidden">
+                          <img src={formation.image_url} alt={formation.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         </div>
                       )}
-                    </CardContent>
-                  </Card>
+                      <CardHeader>
+                        <div className="flex flex-wrap gap-2 mb-2">
+                          <Badge className="bg-accent/10 text-accent border-0 gap-1">
+                            <DomainIcon size={12} />
+                            {formation.domains?.name}
+                          </Badge>
+                          {formation.cpf_eligible && (
+                            <Badge variant="outline" className="border-secondary/30 text-secondary">CPF</Badge>
+                          )}
+                          {formation.level && (
+                            <Badge variant="outline">{formation.level}</Badge>
+                          )}
+                        </div>
+                        <CardTitle className="text-xl group-hover:text-accent transition-colors">{formation.title}</CardTitle>
+                        <CardDescription>{formation.short_description}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex items-center justify-between text-sm text-muted-foreground">
+                          <div className="flex items-center gap-1">
+                            <Clock size={14} />
+                            <span>{formation.duration || "À définir"}</span>
+                          </div>
+                          {formation.price && (
+                            <span className="font-bold text-accent text-lg">{formation.price}€</span>
+                          )}
+                        </div>
+                        {formation.certification && (
+                          <div className="flex items-center gap-1 mt-3 text-sm text-muted-foreground">
+                            <Award size={14} className="text-secondary" />
+                            <span>{formation.certification}</span>
+                          </div>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </Link>
                 );
               })}
             </div>
