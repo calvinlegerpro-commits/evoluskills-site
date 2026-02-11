@@ -81,6 +81,7 @@ export type Database = {
         Row: {
           certification: string | null
           cpf_eligible: boolean
+          cpf_url: string | null
           created_at: string
           description: string | null
           display_order: number
@@ -91,7 +92,12 @@ export type Database = {
           image_url: string | null
           is_published: boolean
           level: string | null
+          modalities: Json | null
+          objectives: Json | null
+          participants_info: string | null
+          prerequisites: Json | null
           price: number | null
+          program: Json | null
           short_description: string
           slug: string
           title: string
@@ -100,6 +106,7 @@ export type Database = {
         Insert: {
           certification?: string | null
           cpf_eligible?: boolean
+          cpf_url?: string | null
           created_at?: string
           description?: string | null
           display_order?: number
@@ -110,7 +117,12 @@ export type Database = {
           image_url?: string | null
           is_published?: boolean
           level?: string | null
+          modalities?: Json | null
+          objectives?: Json | null
+          participants_info?: string | null
+          prerequisites?: Json | null
           price?: number | null
+          program?: Json | null
           short_description: string
           slug: string
           title: string
@@ -119,6 +131,7 @@ export type Database = {
         Update: {
           certification?: string | null
           cpf_eligible?: boolean
+          cpf_url?: string | null
           created_at?: string
           description?: string | null
           display_order?: number
@@ -129,7 +142,12 @@ export type Database = {
           image_url?: string | null
           is_published?: boolean
           level?: string | null
+          modalities?: Json | null
+          objectives?: Json | null
+          participants_info?: string | null
+          prerequisites?: Json | null
           price?: number | null
+          program?: Json | null
           short_description?: string
           slug?: string
           title?: string
