@@ -13,8 +13,8 @@ const Footer = () => {
               Se former pour l'avenir
             </p>
             <p className="text-primary-foreground/80 mb-4">
-              Organisme de formation professionnelle en marketing et communication.
-              Formations finançables CPF.
+              Organisme de formation professionnelle.
+              Management, Digital, IA, Langues — 100% finançables CPF.
             </p>
           </div>
 
