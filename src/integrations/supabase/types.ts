@@ -14,6 +14,137 @@ export type Database = {
   }
   public: {
     Tables: {
+      domains: {
+        Row: {
+          color: string | null
+          created_at: string
+          description: string | null
+          display_order: number
+          icon: string
+          id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          color?: string | null
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          icon?: string
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          color?: string | null
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          icon?: string
+          id?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
+      formation_sectors: {
+        Row: {
+          formation_id: string
+          sector_id: string
+        }
+        Insert: {
+          formation_id: string
+          sector_id: string
+        }
+        Update: {
+          formation_id?: string
+          sector_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "formation_sectors_formation_id_fkey"
+            columns: ["formation_id"]
+            isOneToOne: false
+            referencedRelation: "formations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "formation_sectors_sector_id_fkey"
+            columns: ["sector_id"]
+            isOneToOne: false
+            referencedRelation: "sectors"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      formations: {
+        Row: {
+          certification: string | null
+          cpf_eligible: boolean
+          created_at: string
+          description: string | null
+          display_order: number
+          domain_id: string
+          duration: string | null
+          format: string | null
+          id: string
+          image_url: string | null
+          is_published: boolean
+          level: string | null
+          price: number | null
+          short_description: string
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          certification?: string | null
+          cpf_eligible?: boolean
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          domain_id: string
+          duration?: string | null
+          format?: string | null
+          id?: string
+          image_url?: string | null
+          is_published?: boolean
+          level?: string | null
+          price?: number | null
+          short_description: string
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          certification?: string | null
+          cpf_eligible?: boolean
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          domain_id?: string
+          duration?: string | null
+          format?: string | null
+          id?: string
+          image_url?: string | null
+          is_published?: boolean
+          level?: string | null
+          price?: number | null
+          short_description?: string
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "formations_domain_id_fkey"
+            columns: ["domain_id"]
+            isOneToOne: false
+            referencedRelation: "domains"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       rate_limits: {
         Row: {
           created_at: string
@@ -32,6 +163,36 @@ export type Database = {
           endpoint?: string
           id?: string
           ip_address?: string
+        }
+        Relationships: []
+      }
+      sectors: {
+        Row: {
+          created_at: string
+          description: string | null
+          display_order: number
+          icon: string
+          id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          icon?: string
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          display_order?: number
+          icon?: string
+          id?: string
+          name?: string
+          slug?: string
         }
         Relationships: []
       }
