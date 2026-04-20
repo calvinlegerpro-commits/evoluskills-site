@@ -3,42 +3,68 @@ import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.81.1";
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+const ALLOWED_ORIGINS = [
+  'https://evoluskills.fr',
+  'https://www.evoluskills.fr',
+  'http://localhost:5173',
+  'http://localhost:8080',
+];
+
+const buildCorsHeaders = (origin: string | null) => {
+  const allowOrigin = origin && ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    'Access-Control-Allow-Origin': allowOrigin,
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+    'Vary': 'Origin',
+  };
 };
 
-// Schéma de validation Zod identique au frontend
+// Interdit CR/LF (protection email header injection)
+const noCrlf = z.string().regex(/^[^\r\n]*$/, "Caractères invalides détectés");
+
+// Schéma de validation Zod aligné sur le frontend (regex nom + anti-CRLF)
 const contactFormSchema = z.object({
   name: z.string()
     .trim()
     .min(2, "Le nom doit contenir au moins 2 caractères")
-    .max(100, "Le nom ne peut pas dépasser 100 caractères"),
-  
+    .max(100, "Le nom ne peut pas dépasser 100 caractères")
+    .regex(/^[a-zA-ZÀ-ÿ\s'-]+$/, "Le nom contient des caractères invalides"),
+
   email: z.string()
     .trim()
     .email("Email invalide")
     .max(255, "L'email est trop long"),
-  
+
   phone: z.string()
     .trim()
+    .max(32, "Téléphone trop long")
+    .regex(/^[+\d\s().-]*$/, "Téléphone invalide")
     .optional()
     .or(z.literal("")),
-  
-  subject: z.string()
+
+  subject: noCrlf
     .trim()
     .min(3, "Le sujet doit contenir au moins 3 caractères")
     .max(200, "Le sujet ne peut pas dépasser 200 caractères"),
-  
+
   message: z.string()
     .trim()
     .min(10, "Le message doit contenir au moins 10 caractères")
     .max(2000, "Le message ne peut pas dépasser 2000 caractères"),
-  
+
   website: z.string().max(0, "Spam détecté"),
 });
 
+const escapeHtml = (s: string) =>
+  s.replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
 const handler = async (req: Request): Promise<Response> => {
+  const corsHeaders = buildCorsHeaders(req.headers.get('origin'));
+
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
@@ -141,11 +167,23 @@ const handler = async (req: Request): Promise<Response> => {
     // Adresse email d'affichage (alias professionnel)
     const fromEmail = "EvoluSkills <contact@evoluskills.fr>";
 
+    // Échappement HTML de tous les champs utilisateur avant injection dans les templates
+    const safe = {
+      name: escapeHtml(validatedData.name),
+      email: escapeHtml(validatedData.email),
+      phone: validatedData.phone ? escapeHtml(validatedData.phone) : '',
+      subject: escapeHtml(validatedData.subject),
+      message: escapeHtml(validatedData.message),
+    };
+    // Encodage URL pour les attributs href (mailto:, tel:)
+    const emailHref = encodeURIComponent(validatedData.email);
+    const phoneHref = validatedData.phone ? encodeURIComponent(validatedData.phone) : '';
+
     // Template email de notification (pour vous)
-    const notificationEmailHTML = `<!DOCTYPE html><html><head><meta charset="utf-8"><style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;color:#333}.container{max-width:600px;margin:0 auto;padding:20px}.header{background:linear-gradient(135deg,#3b82f6 0%,#8b5cf6 100%);color:white;padding:30px;border-radius:10px 10px 0 0}.header h1{margin:0;font-size:24px}.content{background:#ffffff;padding:30px;border:1px solid #e5e7eb;border-top:none}.field{margin-bottom:20px}.label{font-weight:600;color:#4b5563;margin-bottom:5px;display:block}.value{background:#f9fafb;padding:12px;border-radius:6px;border-left:3px solid #3b82f6}.footer{background:#f9fafb;padding:20px;text-align:center;color:#6b7280;font-size:14px;border-radius:0 0 10px 10px}</style></head><body><div class="container"><div class="header"><h1>📬 Nouveau message de contact</h1><p style="margin:5px 0 0 0;opacity:0.9">EvoluSkills</p></div><div class="content"><div class="field"><span class="label">👤 Nom</span><div class="value">${validatedData.name}</div></div><div class="field"><span class="label">📧 Email</span><div class="value"><a href="mailto:${validatedData.email}" style="color:#3b82f6">${validatedData.email}</a></div></div>${validatedData.phone ? `<div class="field"><span class="label">📞 Téléphone</span><div class="value"><a href="tel:${validatedData.phone}" style="color:#3b82f6">${validatedData.phone}</a></div></div>` : ''}<div class="field"><span class="label">📝 Sujet</span><div class="value">${validatedData.subject}</div></div><div class="field"><span class="label">💬 Message</span><div class="value" style="white-space:pre-wrap">${validatedData.message}</div></div></div><div class="footer"><p>Ce message a été envoyé depuis le formulaire de contact EvoluSkills</p><p style="margin:5px 0 0 0">🕒 ${new Date().toLocaleString('fr-FR')}</p></div></div></body></html>`;
+    const notificationEmailHTML = `<!DOCTYPE html><html><head><meta charset="utf-8"><style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;color:#333}.container{max-width:600px;margin:0 auto;padding:20px}.header{background:linear-gradient(135deg,#3b82f6 0%,#8b5cf6 100%);color:white;padding:30px;border-radius:10px 10px 0 0}.header h1{margin:0;font-size:24px}.content{background:#ffffff;padding:30px;border:1px solid #e5e7eb;border-top:none}.field{margin-bottom:20px}.label{font-weight:600;color:#4b5563;margin-bottom:5px;display:block}.value{background:#f9fafb;padding:12px;border-radius:6px;border-left:3px solid #3b82f6}.footer{background:#f9fafb;padding:20px;text-align:center;color:#6b7280;font-size:14px;border-radius:0 0 10px 10px}</style></head><body><div class="container"><div class="header"><h1>📬 Nouveau message de contact</h1><p style="margin:5px 0 0 0;opacity:0.9">EvoluSkills</p></div><div class="content"><div class="field"><span class="label">👤 Nom</span><div class="value">${safe.name}</div></div><div class="field"><span class="label">📧 Email</span><div class="value"><a href="mailto:${emailHref}" style="color:#3b82f6">${safe.email}</a></div></div>${safe.phone ? `<div class="field"><span class="label">📞 Téléphone</span><div class="value"><a href="tel:${phoneHref}" style="color:#3b82f6">${safe.phone}</a></div></div>` : ''}<div class="field"><span class="label">📝 Sujet</span><div class="value">${safe.subject}</div></div><div class="field"><span class="label">💬 Message</span><div class="value" style="white-space:pre-wrap">${safe.message}</div></div></div><div class="footer"><p>Ce message a été envoyé depuis le formulaire de contact EvoluSkills</p><p style="margin:5px 0 0 0">🕒 ${new Date().toLocaleString('fr-FR')}</p></div></div></body></html>`;
 
     // Template email de confirmation (pour le client)
-    const confirmationEmailHTML = `<!DOCTYPE html><html><head><meta charset="utf-8"><style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;color:#333}.container{max-width:600px;margin:0 auto;padding:20px}.header{background:linear-gradient(135deg,#3b82f6 0%,#8b5cf6 100%);color:white;padding:30px;border-radius:10px 10px 0 0;text-align:center}.header h1{margin:0;font-size:26px}.content{background:#ffffff;padding:30px;border:1px solid #e5e7eb;border-top:none}.highlight{background:#eff6ff;padding:20px;border-radius:8px;border-left:4px solid #3b82f6;margin:20px 0}.footer{background:#f9fafb;padding:20px;text-align:center;color:#6b7280;font-size:14px;border-radius:0 0 10px 10px}.button{display:inline-block;background:linear-gradient(135deg,#3b82f6 0%,#8b5cf6 100%);color:white;padding:12px 24px;text-decoration:none;border-radius:6px;margin:10px 0}</style></head><body><div class="container"><div class="header"><h1>✅ Message bien reçu !</h1><p style="margin:10px 0 0 0;opacity:0.9">EvoluSkills</p></div><div class="content"><p>Bonjour <strong>${validatedData.name}</strong>,</p><p>Nous avons bien reçu votre message concernant : <strong>"${validatedData.subject}"</strong></p><div class="highlight"><p style="margin:0"><strong>📋 Récapitulatif de votre demande :</strong></p><p style="margin:10px 0 0 0;white-space:pre-wrap">${validatedData.message}</p></div><p>Notre équipe va étudier votre demande et vous apportera une réponse personnalisée dans les <strong>48 heures</strong>.</p><p>Si vous avez une question urgente, n'hésitez pas à nous contacter directement :</p><ul style="list-style:none;padding:0"><li>📧 <a href="mailto:contact@evoluskills.fr" style="color:#3b82f6">contact@evoluskills.fr</a></li><li>📞 <a href="tel:+33695027611" style="color:#3b82f6">+33 6 95 02 76 11</a></li></ul><p style="margin-top:30px">Merci de votre confiance,<br><strong>L'équipe EvoluSkills</strong></p></div><div class="footer"><p>EvoluSkills - Formation professionnelle</p><p style="margin:5px 0">Paris, France</p></div></div></body></html>`;
+    const confirmationEmailHTML = `<!DOCTYPE html><html><head><meta charset="utf-8"><style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;color:#333}.container{max-width:600px;margin:0 auto;padding:20px}.header{background:linear-gradient(135deg,#3b82f6 0%,#8b5cf6 100%);color:white;padding:30px;border-radius:10px 10px 0 0;text-align:center}.header h1{margin:0;font-size:26px}.content{background:#ffffff;padding:30px;border:1px solid #e5e7eb;border-top:none}.highlight{background:#eff6ff;padding:20px;border-radius:8px;border-left:4px solid #3b82f6;margin:20px 0}.footer{background:#f9fafb;padding:20px;text-align:center;color:#6b7280;font-size:14px;border-radius:0 0 10px 10px}.button{display:inline-block;background:linear-gradient(135deg,#3b82f6 0%,#8b5cf6 100%);color:white;padding:12px 24px;text-decoration:none;border-radius:6px;margin:10px 0}</style></head><body><div class="container"><div class="header"><h1>✅ Message bien reçu !</h1><p style="margin:10px 0 0 0;opacity:0.9">EvoluSkills</p></div><div class="content"><p>Bonjour <strong>${safe.name}</strong>,</p><p>Nous avons bien reçu votre message concernant : <strong>"${safe.subject}"</strong></p><div class="highlight"><p style="margin:0"><strong>📋 Récapitulatif de votre demande :</strong></p><p style="margin:10px 0 0 0;white-space:pre-wrap">${safe.message}</p></div><p>Notre équipe va étudier votre demande et vous apportera une réponse personnalisée dans les <strong>48 heures</strong>.</p><p>Si vous avez une question urgente, n'hésitez pas à nous contacter directement :</p><ul style="list-style:none;padding:0"><li>📧 <a href="mailto:contact@evoluskills.fr" style="color:#3b82f6">contact@evoluskills.fr</a></li><li>📞 <a href="tel:+33695027611" style="color:#3b82f6">+33 6 95 02 76 11</a></li></ul><p style="margin-top:30px">Merci de votre confiance,<br><strong>L'équipe EvoluSkills</strong></p></div><div class="footer"><p>EvoluSkills - Formation professionnelle</p><p style="margin:5px 0">Paris, France</p></div></div></body></html>`;
 
     console.log("📤 Envoi de l'email de notification...");
     

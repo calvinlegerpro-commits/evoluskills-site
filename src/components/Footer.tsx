@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
+import logo from "@/assets/logo.svg";
 
 const Footer = () => {
   return (
@@ -9,12 +10,13 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-bold mb-4">EvoluSkills</h3>
+            <img src={logo} alt="EvoluSkills" className="h-28 w-auto mb-4 brightness-0 invert" />
             <p className="text-lg font-semibold text-primary-foreground/90 mb-2">
               Se former pour l'avenir
             </p>
             <p className="text-primary-foreground/80 mb-4">
               Organisme de formation professionnelle.
-              Management, Digital, IA, Langues — 100% finançables CPF.
+              Management, Digital, IA — 100% finançables CPF.
             </p>
           </div>
 
@@ -61,14 +63,14 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-primary-foreground/80">
                 <Mail size={18} />
-                <a href="mailto:contact@evoluskills.fr" className="hover:text-primary-foreground transition-colors">
-                  contact@evoluskills.fr
+                <a href="mailto:evoluskills@gmail.com" className="hover:text-primary-foreground transition-colors">
+                  evoluskills@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2 text-primary-foreground/80">
                 <Phone size={18} />
-                <a href="tel:+33695027611" className="hover:text-primary-foreground transition-colors">
-                  +33 6 95 02 76 11
+                <a href="tel:+33651167465" className="hover:text-primary-foreground transition-colors">
+                  06 51 16 74 65
                 </a>
               </li>
               <li className="flex items-center gap-2 text-primary-foreground/80">

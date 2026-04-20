@@ -53,7 +53,7 @@ const Home = () => {
               Formations professionnelles 100% finançables CPF
             </p>
             <p className="text-lg text-accent font-medium mb-8">
-              Management · Digital · IA · Langues
+              Management · Digital · IA
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl transition-all hover:scale-105 rounded-full px-8">
@@ -90,8 +90,8 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {(domains || []).map((domain, index) => {
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {(domains || []).filter(d => d.slug !== 'langues').map((domain, index) => {
               const Icon = iconMap[domain.icon] || Award;
               return (
                 <Link to={`/formations?domaine=${domain.slug}`} key={domain.id}>

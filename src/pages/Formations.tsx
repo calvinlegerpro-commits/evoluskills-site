@@ -3,13 +3,13 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Award, Users, Brain, Monitor, Globe, Briefcase, BookOpen } from "lucide-react";
+import { Clock, Award, Users, Brain, Monitor, Briefcase, BookOpen } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useDomains, useFormations } from "@/hooks/useFormations";
 
 const iconMap: Record<string, React.ElementType> = {
-  Users, Monitor, Brain, Globe, Briefcase, BookOpen, Award,
+  Users, Monitor, Brain, Briefcase, BookOpen, Award,
 };
 
 const Formations = () => {
@@ -65,7 +65,7 @@ const Formations = () => {
             >
               Tous les domaines
             </Button>
-            {(domains || []).map((domain) => {
+            {(domains || []).filter(d => d.slug !== 'langues').map((domain) => {
               const Icon = iconMap[domain.icon] || BookOpen;
               return (
                 <Button
@@ -104,11 +104,15 @@ const Formations = () => {
                       className="border-primary/10 hover:border-accent/50 transition-all group hover:shadow-2xl backdrop-blur-sm bg-card/80 rounded-3xl animate-scale-in overflow-hidden"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      {formation.image_url && (
-                        <div className="aspect-video overflow-hidden">
+                      <div className="aspect-video overflow-hidden">
+                        {formation.image_url ? (
                           <img src={formation.image_url} alt={formation.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                        </div>
-                      )}
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                            <DomainIcon size={48} className="text-primary/30" />
+                          </div>
+                        )}
+                      </div>
                       <CardHeader>
                         <div className="flex flex-wrap gap-2 mb-2">
                           <Badge className="bg-accent/10 text-accent border-0 gap-1">

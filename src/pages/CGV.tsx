@@ -23,7 +23,7 @@ const CGV = () => {
         {/* Decorative wave */}
         <div className="absolute -bottom-px left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="hsl(var(--background))" />
+            <path d="M0 120L60 114C120 108 240 96 360 90C480 84 600 84 720 87C840 90 960 96 1080 99C1200 102 1320 102 1380 102L1440 102V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="hsl(var(--background))" />
           </svg>
         </div>
       </section>
@@ -38,8 +38,8 @@ const CGV = () => {
                 Entre la société <strong>EvoluSkills</strong>, organisme de formation professionnelle, dont le siège social est situé au 32 rue de Paris, 92100 Boulogne-Billancourt,
               </p>
               <p>
-                Tél : <a href="tel:+33695027611" className="text-accent hover:underline">+33 6 95 02 76 11</a><br />
-                Email : <a href="mailto:contact@evoluskills.fr" className="text-accent hover:underline">contact@evoluskills.fr</a>
+                Tél : <a href="tel:+33651167465" className="text-accent hover:underline">06 51 16 74 65</a><br />
+                Email : <a href="mailto:evoluskills@gmail.com" className="text-accent hover:underline">evoluskills@gmail.com</a>
               </p>
               <p className="font-medium">Ci-après désignée « le Prestataire » ou « EvoluSkills », d&apos;une part ;</p>
               <p className="font-medium">Et</p>
@@ -293,7 +293,7 @@ const CGV = () => {
                 Les données collectées sont nécessaires à la gestion administrative et pédagogique des formations, ainsi qu&apos;au respect des obligations légales et réglementaires en matière de formation professionnelle.
               </p>
               <p>
-                Le Client dispose d&apos;un droit d&apos;accès, de rectification, de suppression et de portabilité de ses données personnelles. Il peut exercer ces droits en contactant EvoluSkills à l&apos;adresse : contact@evoluskills.fr.
+                Le Client dispose d&apos;un droit d&apos;accès, de rectification, de suppression et de portabilité de ses données personnelles. Il peut exercer ces droits en contactant EvoluSkills à l&apos;adresse : evoluskills@gmail.com.
               </p>
               <p>
                 Les données sont conservées pendant la durée nécessaire à l&apos;accomplissement des finalités pour lesquelles elles ont été collectées et conformément aux obligations légales de conservation.
@@ -352,7 +352,7 @@ const CGV = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Pour toute réclamation, le Client peut contacter EvoluSkills par email à contact@evoluskills.fr ou par téléphone au +33 6 95 02 76 11.
+                Pour toute réclamation, le Client peut contacter EvoluSkills par email à evoluskills@gmail.com ou par téléphone au 06 51 16 74 65.
               </p>
               <p>
                 En cas de litige, les Parties s&apos;efforceront de trouver une solution amiable. À défaut d&apos;accord amiable, le Client peut recourir gratuitement à un médiateur de la consommation.
@@ -399,8 +399,8 @@ const CGV = () => {
               <p>32 rue de Paris, 92100 Boulogne-Billancourt</p>
               <p>SIREN 988 964 474 — RCS Nanterre</p>
               <p>
-                Tél : <a href="tel:+33695027611" className="text-accent hover:underline">+33 6 95 02 76 11</a> | 
-                Email : <a href="mailto:contact@evoluskills.fr" className="text-accent hover:underline">contact@evoluskills.fr</a>
+                Tél : <a href="tel:+33651167465" className="text-accent hover:underline">06 51 16 74 65</a> | 
+                Email : <a href="mailto:evoluskills@gmail.com" className="text-accent hover:underline">evoluskills@gmail.com</a>
               </p>
               <p className="mt-4">Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>
             </div>

@@ -47,7 +47,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">À propos de EvoluSkills</h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            Votre partenaire de confiance pour la formation professionnelle en marketing digital
+            Votre partenaire de confiance
           </p>
         </div>
         
@@ -66,15 +66,9 @@ const About = () => {
           <Card className="border-0 shadow-md overflow-hidden group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 animate-fade-in">
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
             <CardContent className="p-8 relative">
-              <p className="text-lg leading-relaxed mb-4">
-                EvoluSkills est né de la conviction que la formation professionnelle doit être accessible à tous. 
-                Notre mission est d'accompagner les professionnels et entrepreneurs dans leur montée en compétences 
-                sur les thématiques du marketing digital et de la communication.
-              </p>
               <p className="text-lg leading-relaxed">
-                Nous croyons que la maîtrise des outils digitaux est aujourd'hui indispensable pour développer 
-                son activité. C'est pourquoi nous proposons des formations pratiques, certifiantes et 100% 
-                finançables par le CPF, pour rendre la formation accessible à tous.
+                Nous accompagnons professionnels et entrepreneurs dans leur montée en compétences digitales,
+                avec des formations pratiques, certifiantes et finançables par le CPF.
               </p>
             </CardContent>
           </Card>
@@ -130,9 +124,9 @@ const About = () => {
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-secondary/5 via-accent/5 to-primary/5"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="w-full h-px bg-gradient-to-r from-primary via-accent to-secondary mb-8"></div>
           <h2 className="text-3xl font-bold mb-6 text-center">Notre équipe</h2>
           <Card className="border-accent/20 overflow-hidden group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 animate-fade-in">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-secondary"></div>
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
             <CardContent className="p-8 relative">
               <p className="text-lg leading-relaxed text-center">

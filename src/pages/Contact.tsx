@@ -145,14 +145,14 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "contact@evoluskills.fr",
-      link: "mailto:contact@evoluskills.fr",
+      content: "evoluskills@gmail.com",
+      link: "mailto:evoluskills@gmail.com",
     },
     {
       icon: Phone,
       title: "Téléphone",
-      content: "+33 6 95 02 76 11",
-      link: "tel:+33695027611",
+      content: "06 51 16 74 65",
+      link: "tel:+33651167465",
     },
     {
       icon: MapPin,

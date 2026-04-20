@@ -74,6 +74,7 @@ export const useFormations = (domainSlug?: string) => {
       let query = supabase
         .from("formations")
         .select("*, domains(*)")
+        .eq("is_published", true)
         .order("display_order");
 
       if (domainSlug) {

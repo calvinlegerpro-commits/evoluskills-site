@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Clock, Award, Users, CheckCircle, BookOpen, Monitor, Video, MessageSquare, BarChart3, UserCheck } from "lucide-react";
+import { Clock, Award, Users, CheckCircle, BookOpen, Monitor, Video, MessageSquare, BarChart3, UserCheck, Download } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -177,6 +177,34 @@ const FormationDetail = () => {
                       </Card>
                     ))}
                   </div>
+                  <div className="mt-6">
+                    <Button
+                      variant="outline"
+                      className="rounded-full gap-2"
+                      onClick={() => {
+                        const lines = [
+                          formation.title,
+                          `Durée totale : ${formation.duration ?? ""}`,
+                          "",
+                          ...program.flatMap((module) => [
+                            module.title,
+                            ...module.items.map((item) => `  • ${item}`),
+                            "",
+                          ]),
+                        ];
+                        const blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement("a");
+                        a.href = url;
+                        a.download = `programme-${formation.slug}.txt`;
+                        a.click();
+                        URL.revokeObjectURL(url);
+                      }}
+                    >
+                      <Download size={16} />
+                      Télécharger le programme
+                    </Button>
+                  </div>
                 </div>
               )}
 
@@ -209,8 +237,8 @@ const FormationDetail = () => {
 
                   <div className="space-y-5">
                     {formation.duration && (
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center shrink-0">
                           <Clock size={18} className="text-muted-foreground" />
                         </div>
                         <div>
@@ -221,20 +249,20 @@ const FormationDetail = () => {
                     )}
 
                     {formation.participants_info && (
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center shrink-0">
                           <Users size={18} className="text-muted-foreground" />
                         </div>
                         <div>
-                          <p className="font-semibold text-sm">Participants</p>
+                          <p className="font-semibold text-sm">Public visé</p>
                           <p className="text-muted-foreground text-sm">{formation.participants_info}</p>
                         </div>
                       </div>
                     )}
 
                     {formation.certification && (
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center shrink-0">
                           <Award size={18} className="text-muted-foreground" />
                         </div>
                         <div>
@@ -259,6 +287,10 @@ const FormationDetail = () => {
                       <a href={formation.cpf_url} target="_blank" rel="noopener noreferrer">S'inscrire avec le CPF</a>
                     </Button>
                   )}
+
+                  <Button asChild className="w-full rounded-full">
+                    <Link to="/contact">S'inscrire</Link>
+                  </Button>
 
                   <Button asChild variant="outline" className="w-full rounded-full">
                     <Link to="/contact">Demander un devis</Link>

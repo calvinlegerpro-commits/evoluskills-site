@@ -23,7 +23,7 @@ const MentionsLegales = () => {
         {/* Decorative wave */}
         <div className="absolute -bottom-px left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="hsl(var(--background))" />
+            <path d="M0 120L60 114C120 108 240 96 360 90C480 84 600 84 720 87C840 90 960 96 1080 99C1200 102 1320 102 1380 102L1440 102V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="hsl(var(--background))" />
           </svg>
         </div>
       </section>
@@ -66,10 +66,10 @@ const MentionsLegales = () => {
                 <strong>Code APE/NAF :</strong> 8559A - Formation continue d&apos;adultes
               </p>
               <p>
-                <strong>Email :</strong> <a href="mailto:contact@evoluskills.fr" className="text-accent hover:underline">contact@evoluskills.fr</a>
+                <strong>Email :</strong> <a href="mailto:evoluskills@gmail.com" className="text-accent hover:underline">evoluskills@gmail.com</a>
               </p>
               <p>
-                <strong>Téléphone :</strong> <a href="tel:+33695027611" className="text-accent hover:underline">+33 6 95 02 76 11</a>
+                <strong>Téléphone :</strong> <a href="tel:+33651167465" className="text-accent hover:underline">06 51 16 74 65</a>
               </p>
             </CardContent>
           </Card>
@@ -132,8 +132,8 @@ const MentionsLegales = () => {
                 Pour exercer ces droits, vous pouvez nous contacter :
               </p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Par email : contact@evoluskills.fr</li>
-                <li>Par téléphone : +33 6 95 02 76 11</li>
+                <li>Par email : evoluskills@gmail.com</li>
+                <li>Par téléphone : 06 51 16 74 65</li>
                 <li>Par courrier : EvoluSkills, 32 rue de Paris, 92100 Boulogne-Billancourt</li>
               </ul>
               <p>
@@ -247,10 +247,10 @@ const MentionsLegales = () => {
               </p>
               <div className="space-y-2 pl-4">
                 <p>
-                  <strong>Par email :</strong> <a href="mailto:contact@evoluskills.fr" className="text-accent hover:underline">contact@evoluskills.fr</a>
+                  <strong>Par email :</strong> <a href="mailto:evoluskills@gmail.com" className="text-accent hover:underline">evoluskills@gmail.com</a>
                 </p>
                 <p>
-                  <strong>Par téléphone :</strong> <a href="tel:+33695027611" className="text-accent hover:underline">+33 6 95 02 76 11</a>
+                  <strong>Par téléphone :</strong> <a href="tel:+33651167465" className="text-accent hover:underline">06 51 16 74 65</a>
                 </p>
                 <p>
                   <strong>Par courrier :</strong><br />
