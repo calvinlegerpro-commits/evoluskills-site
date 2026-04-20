@@ -145,8 +145,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "contact@formaskills.pro",
-      link: "mailto:contact@formaskills.pro",
+      content: "contact@evoluskills.fr",
+      link: "mailto:contact@evoluskills.fr",
     },
     {
       icon: Phone,

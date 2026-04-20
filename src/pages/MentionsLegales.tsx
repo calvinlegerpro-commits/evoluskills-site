@@ -36,28 +36,28 @@ const MentionsLegales = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                <strong>Raison sociale :</strong> FORMASKILLS
+                <strong>Raison sociale :</strong> EVOLUSKILLS
               </p>
               <p>
                 <strong>Forme juridique :</strong> SASU (Société par Actions Simplifiée Unipersonnelle)
               </p>
               <p>
-                <strong>Capital social :</strong> [À compléter]
+                <strong>Capital social :</strong> 1 000,00 €
               </p>
               <p>
                 <strong>Siège social :</strong> 32 rue de Paris, 92100 Boulogne-Billancourt
               </p>
               <p>
-                <strong>SIREN :</strong> 941 048 019
+                <strong>SIREN :</strong> 988 964 474
               </p>
               <p>
-                <strong>SIRET :</strong> 941 048 019 00017
+                <strong>SIRET :</strong> 988 964 474 00015
               </p>
               <p>
-                <strong>RCS :</strong> Nanterre
+                <strong>RCS :</strong> 988 964 474 R.C.S. Nanterre (inscrit le 08/07/2025)
               </p>
               <p>
-                <strong>Numéro de TVA intracommunautaire :</strong> FR03941048019
+                <strong>Numéro de TVA intracommunautaire :</strong> FR24988964474
               </p>
               <p>
                 <strong>Numéro de déclaration d&apos;activité de formation :</strong> [À compléter auprès de la DREETS]
@@ -66,7 +66,7 @@ const MentionsLegales = () => {
                 <strong>Code APE/NAF :</strong> 8559A - Formation continue d&apos;adultes
               </p>
               <p>
-                <strong>Email :</strong> <a href="mailto:contact@formaskills.pro" className="text-accent hover:underline">contact@formaskills.pro</a>
+                <strong>Email :</strong> <a href="mailto:contact@evoluskills.fr" className="text-accent hover:underline">contact@evoluskills.fr</a>
               </p>
               <p>
                 <strong>Téléphone :</strong> <a href="tel:+33695027611" className="text-accent hover:underline">+33 6 95 02 76 11</a>
@@ -80,7 +80,7 @@ const MentionsLegales = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Le directeur de la publication du site est le représentant légal de FORMASKILLS, en sa qualité de Président de la société.
+                Le directeur de la publication du site est le représentant légal de EVOLUSKILLS, en sa qualité de Président de la société.
               </p>
             </CardContent>
           </Card>
@@ -91,7 +91,7 @@ const MentionsLegales = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Le site formaskills.pro est hébergé par :
+                Le site evoluskills.fr est hébergé par :
               </p>
               <p>
                 <strong>Lovable</strong><br />
@@ -132,9 +132,9 @@ const MentionsLegales = () => {
                 Pour exercer ces droits, vous pouvez nous contacter :
               </p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Par email : contact@formaskills.pro</li>
+                <li>Par email : contact@evoluskills.fr</li>
                 <li>Par téléphone : +33 6 95 02 76 11</li>
-                <li>Par courrier : FormaSkills, Paris, France</li>
+                <li>Par courrier : EvolusKills, 32 rue de Paris, 92100 Boulogne-Billancourt</li>
               </ul>
               <p>
                 Les données collectées sur ce site sont utilisées uniquement dans le cadre de la gestion des 
@@ -166,7 +166,7 @@ const MentionsLegales = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                FORMASKILLS est un organisme de formation professionnelle déclaré auprès de la Direction Régionale de l&apos;Économie, de l&apos;Emploi, du Travail et des Solidarités (DREETS).
+                EVOLUSKILLS est un organisme de formation professionnelle déclaré auprès de la Direction Régionale de l&apos;Économie, de l&apos;Emploi, du Travail et des Solidarités (DREETS).
               </p>
               <p>
                 <strong>Numéro de déclaration d&apos;activité :</strong> [En cours d&apos;obtention - numéro attribué par la DREETS après premier bilan pédagogique et financier]
@@ -195,10 +195,10 @@ const MentionsLegales = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Le site formaskills.pro peut contenir des liens hypertextes vers d&apos;autres sites Internet. FORMASKILLS ne saurait être tenu responsable du contenu de ces sites externes ni des éventuels dommages résultant de leur consultation.
+                Le site evoluskills.fr peut contenir des liens hypertextes vers d&apos;autres sites Internet. EVOLUSKILLS ne saurait être tenu responsable du contenu de ces sites externes ni des éventuels dommages résultant de leur consultation.
               </p>
               <p>
-                La mise en place de liens hypertextes vers le site formaskills.pro nécessite une autorisation préalable écrite.
+                La mise en place de liens hypertextes vers le site evoluskills.fr nécessite une autorisation préalable écrite.
               </p>
             </CardContent>
           </Card>
@@ -209,13 +209,13 @@ const MentionsLegales = () => {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                FORMASKILLS s&apos;efforce d&apos;assurer l&apos;exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, FORMASKILLS ne peut garantir l&apos;exactitude, la précision ou l&apos;exhaustivité des informations mises à disposition sur ce site.
+                EVOLUSKILLS s&apos;efforce d&apos;assurer l&apos;exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, EVOLUSKILLS ne peut garantir l&apos;exactitude, la précision ou l&apos;exhaustivité des informations mises à disposition sur ce site.
               </p>
               <p>
-                FORMASKILLS ne saurait être tenu responsable des erreurs, d&apos;omissions ou des résultats qui pourraient être obtenus par un mauvais usage de ces informations.
+                EVOLUSKILLS ne saurait être tenu responsable des erreurs, d&apos;omissions ou des résultats qui pourraient être obtenus par un mauvais usage de ces informations.
               </p>
               <p>
-                L&apos;accès au site peut être interrompu pour des raisons de maintenance ou de mise à jour, ou pour toute autre raison technique. FORMASKILLS ne saurait être tenu responsable des interruptions et des conséquences qui peuvent en découler pour l&apos;utilisateur.
+                L&apos;accès au site peut être interrompu pour des raisons de maintenance ou de mise à jour, ou pour toute autre raison technique. EVOLUSKILLS ne saurait être tenu responsable des interruptions et des conséquences qui peuvent en découler pour l&apos;utilisateur.
               </p>
             </CardContent>
           </Card>
@@ -232,7 +232,7 @@ const MentionsLegales = () => {
                 En cas de litige relatif à l&apos;interprétation ou à l&apos;exécution des présentes, et à défaut d&apos;accord amiable, les tribunaux français seront seuls compétents pour en connaître.
               </p>
               <p>
-                Pour les litiges avec des consommateurs, le tribunal compétent sera celui du lieu de domicile du consommateur ou celui du siège social de FORMASKILLS.
+                Pour les litiges avec des consommateurs, le tribunal compétent sera celui du lieu de domicile du consommateur ou celui du siège social de EVOLUSKILLS.
               </p>
             </CardContent>
           </Card>
@@ -247,14 +247,14 @@ const MentionsLegales = () => {
               </p>
               <div className="space-y-2 pl-4">
                 <p>
-                  <strong>Par email :</strong> <a href="mailto:contact@formaskills.pro" className="text-accent hover:underline">contact@formaskills.pro</a>
+                  <strong>Par email :</strong> <a href="mailto:contact@evoluskills.fr" className="text-accent hover:underline">contact@evoluskills.fr</a>
                 </p>
                 <p>
                   <strong>Par téléphone :</strong> <a href="tel:+33695027611" className="text-accent hover:underline">+33 6 95 02 76 11</a>
                 </p>
                 <p>
                   <strong>Par courrier :</strong><br />
-                  FORMASKILLS<br />
+                  EVOLUSKILLS<br />
                   32 rue de Paris<br />
                   92100 Boulogne-Billancourt
                 </p>
@@ -268,7 +268,7 @@ const MentionsLegales = () => {
               Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}
             </p>
             <p className="text-xs text-muted-foreground">
-              FORMASKILLS - SIREN 941 048 019 - RCS Nanterre
+              EVOLUSKILLS - SIREN 988 964 474 - RCS Nanterre
             </p>
           </div>
         </div>
