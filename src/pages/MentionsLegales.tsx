@@ -134,7 +134,7 @@ const MentionsLegales = () => {
               <ul className="list-disc pl-6 space-y-2">
                 <li>Par email : contact@evoluskills.fr</li>
                 <li>Par téléphone : +33 6 95 02 76 11</li>
-                <li>Par courrier : EvolusKills, 32 rue de Paris, 92100 Boulogne-Billancourt</li>
+                <li>Par courrier : EvoluSkills, 32 rue de Paris, 92100 Boulogne-Billancourt</li>
               </ul>
               <p>
                 Les données collectées sur ce site sont utilisées uniquement dans le cadre de la gestion des 

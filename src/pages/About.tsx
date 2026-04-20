@@ -45,7 +45,7 @@ const About = () => {
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/30 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">À propos de EvolusKills</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">À propos de EvoluSkills</h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl animate-fade-in" style={{ animationDelay: '0.1s' }}>
             Votre partenaire de confiance pour la formation professionnelle en marketing digital
           </p>
@@ -67,7 +67,7 @@ const About = () => {
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
             <CardContent className="p-8 relative">
               <p className="text-lg leading-relaxed mb-4">
-                EvolusKills est né de la conviction que la formation professionnelle doit être accessible à tous. 
+                EvoluSkills est né de la conviction que la formation professionnelle doit être accessible à tous. 
                 Notre mission est d'accompagner les professionnels et entrepreneurs dans leur montée en compétences 
                 sur les thématiques du marketing digital et de la communication.
               </p>
@@ -150,7 +150,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6 animate-fade-in">Organisme certifié</h2>
           <p className="text-lg text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            EvolusKills est un organisme de formation certifié Qualiopi et nos formations sont éligibles au CPF. 
+            EvoluSkills est un organisme de formation certifié Qualiopi et nos formations sont éligibles au CPF. 
             Nos certifications sont inscrites au RNCP et reconnues par l'État, garantissant la qualité et la 
             reconnaissance professionnelle de nos formations.
           </p>

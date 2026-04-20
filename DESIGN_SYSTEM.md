@@ -1,4 +1,4 @@
-# EvolusKills – Direction Artistique & Design System
+# EvoluSkills – Direction Artistique & Design System
 
 ## Philosophie
 - Tons naturels et organiques : vert olive, ocre/ambre, crème chaud
