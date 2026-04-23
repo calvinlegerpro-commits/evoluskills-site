@@ -20,6 +20,22 @@ export interface Sector {
   display_order: number;
 }
 
+export interface KeyStat {
+  label: string;
+  value: string;
+}
+
+export interface EvaluationDetail {
+  type: string;
+  description: string;
+  duration: string;
+}
+
+export interface ProgramModule {
+  title: string;
+  items: string[];
+}
+
 export interface Formation {
   id: string;
   title: string;
@@ -28,14 +44,29 @@ export interface Formation {
   description: string | null;
   domain_id: string;
   duration: string | null;
+  sync_hours: string | null;
   price: number | null;
   cpf_eligible: boolean;
+  cpf_url: string | null;
   certification: string | null;
+  certification_code: string | null;
+  certifier: string | null;
+  france_competences_url: string | null;
   level: string | null;
   format: string | null;
   image_url: string | null;
   is_published: boolean;
   display_order: number;
+  participants_info: string | null;
+  prerequisites: string[] | null;
+  objectives: string[] | null;
+  program: ProgramModule[] | null;
+  modalities: string[] | null;
+  competences: string[] | null;
+  exam_mention: string | null;
+  evaluation_details: EvaluationDetail[] | null;
+  candidacy_procedure: string | null;
+  key_stats: KeyStat[] | null;
   domains?: Domain;
 }
 
@@ -90,7 +121,7 @@ export const useFormations = (domainSlug?: string) => {
 
       const { data, error } = await query;
       if (error) throw error;
-      return data as Formation[];
+      return data as unknown as Formation[];
     },
   });
 };
