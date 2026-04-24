@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Clock, Award, Users, Brain, Monitor, Briefcase, BookOpen } from "lucide-react";
+
+import { Clock, Brain, Monitor, Briefcase, BookOpen, Award, Users } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useDomains, useFormations } from "@/hooks/useFormations";
@@ -84,14 +83,14 @@ const Formations = () => {
           {isLoading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3].map((i) => (
-                <Card key={i} className="rounded-3xl animate-pulse">
+                <div key={i} className="rounded-2xl overflow-hidden border border-border animate-pulse">
                   <div className="aspect-video bg-muted" />
-                  <CardContent className="p-6">
-                    <div className="h-5 bg-muted rounded w-3/4 mb-3" />
-                    <div className="h-4 bg-muted rounded w-full mb-2" />
-                    <div className="h-4 bg-muted rounded w-2/3" />
-                  </CardContent>
-                </Card>
+                  <div className="p-5 space-y-3">
+                    <div className="h-4 bg-muted rounded w-1/2" />
+                    <div className="h-5 bg-muted rounded w-full" />
+                    <div className="h-5 bg-muted rounded w-3/4" />
+                  </div>
+                </div>
               ))}
             </div>
           ) : formations && formations.length > 0 ? (
@@ -99,13 +98,13 @@ const Formations = () => {
               {formations.map((formation, index) => {
                 const DomainIcon = iconMap[formation.domains?.icon || "BookOpen"] || BookOpen;
                 return (
-                  <Link to={`/formations/${formation.slug}`} key={formation.id} className="block">
-                    <Card
-                      className="border-primary/10 hover:border-accent/50 transition-all group hover:shadow-2xl backdrop-blur-sm bg-card/80 rounded-3xl animate-scale-in overflow-hidden h-full flex flex-col"
-                      style={{ animationDelay: `${index * 0.1}s` }}
+                  <Link to={`/formations/${formation.slug}`} key={formation.id} className="block group">
+                    <div
+                      className="rounded-2xl overflow-hidden border border-border bg-card hover:border-accent/50 hover:shadow-xl transition-all duration-300 h-full flex flex-col animate-scale-in"
+                      style={{ animationDelay: `${index * 0.08}s` }}
                     >
                       {/* Image */}
-                      <div className="aspect-video overflow-hidden shrink-0">
+                      <div className="aspect-video overflow-hidden shrink-0 bg-muted">
                         {formation.image_url ? (
                           <img
                             src={formation.image_url}
@@ -113,65 +112,51 @@ const Formations = () => {
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         ) : (
-                          <div className="w-full h-full bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                            <DomainIcon size={48} className="text-primary/30" />
+                          <div className="w-full h-full bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 flex items-center justify-center">
+                            <DomainIcon size={40} className="text-primary/20" />
                           </div>
                         )}
                       </div>
 
-                      {/* Header */}
-                      <CardHeader className="pb-3">
-                        <div className="flex flex-wrap gap-2 mb-2">
-                          <Badge className="bg-accent/10 text-accent border-0 gap-1">
-                            <DomainIcon size={12} />
+                      {/* Content */}
+                      <div className="p-5 flex flex-col gap-3 flex-1">
+                        {/* Badges */}
+                        <div className="flex flex-wrap gap-1.5">
+                          <span className="inline-flex items-center gap-1 text-xs font-medium text-accent bg-accent/10 px-2 py-0.5 rounded-full">
+                            <DomainIcon size={11} />
                             {formation.domains?.name}
-                          </Badge>
+                          </span>
                           {formation.certification_code && (
-                            <Badge className="bg-accent text-accent-foreground border-0 font-semibold text-xs">
+                            <span className="text-xs font-semibold bg-secondary/15 text-secondary px-2 py-0.5 rounded-full">
                               {formation.certification_code}
-                            </Badge>
+                            </span>
                           )}
                           {formation.cpf_eligible && (
-                            <Badge variant="outline" className="border-secondary/30 text-secondary">
+                            <span className="text-xs font-semibold border border-primary/30 text-primary px-2 py-0.5 rounded-full">
                               CPF
-                            </Badge>
-                          )}
-                        </div>
-                        <CardTitle className="text-xl group-hover:text-accent transition-colors leading-snug">
-                          {formation.title}
-                        </CardTitle>
-                        <CardDescription className="line-clamp-2">
-                          {formation.short_description}
-                        </CardDescription>
-                      </CardHeader>
-
-                      {/* Footer */}
-                      <CardContent className="mt-auto pt-0">
-                        {formation.participants_info && (
-                          <p className="text-xs text-muted-foreground flex items-center gap-1.5 mb-3">
-                            <Users size={12} className="shrink-0" />
-                            <span className="line-clamp-1">{formation.participants_info}</span>
-                          </p>
-                        )}
-                        <div className="flex items-center justify-between text-sm text-muted-foreground">
-                          <div className="flex items-center gap-1">
-                            <Clock size={14} />
-                            <span>{formation.duration || "À définir"}</span>
-                          </div>
-                          {formation.price && (
-                            <span className="font-bold text-accent text-lg">
-                              {formation.price.toLocaleString("fr-FR")}€
                             </span>
                           )}
                         </div>
-                        {formation.certification && (
-                          <div className="flex items-center gap-1 mt-3 text-sm text-muted-foreground">
-                            <Award size={14} className="text-secondary shrink-0" />
-                            <span className="line-clamp-1">{formation.certification}</span>
-                          </div>
-                        )}
-                      </CardContent>
-                    </Card>
+
+                        {/* Titre */}
+                        <h3 className="font-semibold text-base leading-snug line-clamp-3 group-hover:text-accent transition-colors">
+                          {formation.title}
+                        </h3>
+
+                        {/* Durée + Prix */}
+                        <div className="flex items-center justify-between mt-auto pt-2 border-t border-border">
+                          <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                            <Clock size={14} />
+                            {formation.duration || "À définir"}
+                          </span>
+                          {formation.price && (
+                            <span className="font-bold text-accent text-lg">
+                              {formation.price.toLocaleString("fr-FR")} €
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
                   </Link>
                 );
               })}

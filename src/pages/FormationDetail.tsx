@@ -97,8 +97,6 @@ const FormationDetail = () => {
       currentGroup.items.push(item);
     }
   }
-  const hasGroups = modalityGroups.length > 0;
-
   const toggleModule = (i: number) => {
     setOpenModules((prev) => ({ ...prev, [i]: !prev[i] }));
   };
@@ -382,50 +380,32 @@ const FormationDetail = () => {
               )}
 
               {/* Modalités pédagogiques */}
-              {modalities.length > 0 && (
+              {modalityGroups.length > 0 && (
                 <div>
                   <h2 className="text-2xl font-bold mb-6">Moyens pédagogiques & techniques</h2>
-                  {hasGroups ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      {modalityGroups.map((group, gi) => {
-                        const Icon = categoryIconMap[group.title] || BookOpen;
-                        return (
-                          <div key={gi} className="rounded-2xl border border-primary/10 bg-muted/20 p-5">
-                            <div className="flex items-center gap-3 mb-4">
-                              <div className="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                                <Icon size={18} className="text-accent" />
-                              </div>
-                              <h3 className="font-bold text-sm">{group.title}</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    {modalityGroups.map((group, gi) => {
+                      const Icon = categoryIconMap[group.title] || BookOpen;
+                      return (
+                        <div key={gi} className="rounded-2xl border border-primary/10 bg-muted/20 p-5">
+                          <div className="flex items-center gap-3 mb-4">
+                            <div className="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                              <Icon size={18} className="text-accent" />
                             </div>
-                            <ul className="space-y-2">
-                              {group.items.map((item, ii) => (
-                                <li key={ii} className="flex items-start gap-2 text-sm text-muted-foreground">
-                                  <CheckCircle size={14} className="text-accent shrink-0 mt-0.5" />
-                                  <span>{item}</span>
-                                </li>
-                              ))}
-                            </ul>
+                            <h3 className="font-bold text-sm">{group.title}</h3>
                           </div>
-                        );
-                      })}
-                    </div>
-                  ) : (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                      {modalities.map((item, i) => {
-                        const Icon = BookOpen;
-                        return (
-                          <Card key={i} className="rounded-2xl border-primary/10 hover:border-accent/30 transition-colors">
-                            <CardContent className="p-6 flex flex-col items-center text-center gap-3">
-                              <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center">
-                                <Icon size={22} className="text-accent" />
-                              </div>
-                              <span className="text-sm font-medium leading-snug">{item}</span>
-                            </CardContent>
-                          </Card>
-                        );
-                      })}
-                    </div>
-                  )}
+                          <ul className="space-y-2">
+                            {group.items.map((item, ii) => (
+                              <li key={ii} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                <CheckCircle size={14} className="text-accent shrink-0 mt-0.5" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               )}
 
@@ -498,13 +478,19 @@ const FormationDetail = () => {
                           <Clock size={18} className="text-muted-foreground" />
                         </div>
                         <div>
-                          <p className="font-semibold text-sm">Durée</p>
+                          <p className="font-semibold text-sm">Durée totale</p>
                           <p className="text-muted-foreground text-sm">{formation.duration}</p>
-                          {formation.sync_hours && (
-                            <p className="text-muted-foreground text-xs mt-0.5">
-                              dont {formation.sync_hours} en direct
-                            </p>
-                          )}
+                          {formation.sync_hours && (() => {
+                            const total = parseInt(formation.duration ?? "0");
+                            const sync = parseInt(formation.sync_hours ?? "0");
+                            const async_ = total - sync;
+                            return (
+                              <div className="mt-1.5 space-y-0.5">
+                                <p className="text-muted-foreground text-xs">· {async_}h e-learning</p>
+                                <p className="text-muted-foreground text-xs">· {formation.sync_hours} visioconférence</p>
+                              </div>
+                            );
+                          })()}
                         </div>
                       </div>
                     )}

@@ -18,7 +18,7 @@ const About = () => {
     {
       icon: Award,
       title: "Certifications reconnues",
-      description: "Des certifications professionnelles inscrites au RNCP et reconnues par l'État",
+      description: "Des certifications professionnelles inscrites au RS et reconnues par l'État",
     },
     {
       icon: Heart,
@@ -145,7 +145,7 @@ const About = () => {
           <h2 className="text-3xl font-bold mb-6 animate-fade-in">Organisme certifié</h2>
           <p className="text-lg text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: '0.1s' }}>
             EvoluSkills est un organisme de formation certifié Qualiopi et nos formations sont éligibles au CPF. 
-            Nos certifications sont inscrites au RNCP et reconnues par l'État, garantissant la qualité et la 
+            Nos certifications sont inscrites au RS et reconnues par l'État, garantissant la qualité et la 
             reconnaissance professionnelle de nos formations.
           </p>
         </div>
