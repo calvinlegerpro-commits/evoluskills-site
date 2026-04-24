@@ -13,39 +13,42 @@ if (!imagePath || !formationSlug || !fileName) {
   process.exit(1);
 }
 
-// Créer le bucket s'il n'existe pas
-const { error: bucketError } = await supabase.storage.createBucket('formations', { public: true });
-if (bucketError && !bucketError.message.includes('already exists')) {
-  console.error('❌ Erreur création bucket:', bucketError.message);
-  process.exit(1);
+async function main() {
+  const { error: bucketError } = await supabase.storage.createBucket('formations', { public: true });
+  if (bucketError && !bucketError.message.includes('already exists')) {
+    console.error('❌ Erreur création bucket:', bucketError.message);
+    process.exit(1);
+  }
+
+  const file = readFileSync(imagePath);
+  const mimeType = imagePath.endsWith('.png') ? 'image/png' : 'image/jpeg';
+
+  const { error: uploadError } = await supabase.storage
+    .from('formations')
+    .upload(`images/${fileName}`, file, { contentType: mimeType, upsert: true });
+
+  if (uploadError) {
+    console.error('❌ Erreur upload:', uploadError.message);
+    process.exit(1);
+  }
+
+  const { data: { publicUrl } } = supabase.storage
+    .from('formations')
+    .getPublicUrl(`images/${fileName}`);
+
+  console.log(`✅ Image uploadée: ${publicUrl}`);
+
+  const { error: updateError } = await supabase
+    .from('formations')
+    .update({ image_url: publicUrl })
+    .eq('slug', formationSlug);
+
+  if (updateError) {
+    console.error('❌ Erreur mise à jour:', updateError.message);
+    process.exit(1);
+  }
+
+  console.log(`✅ Formation "${formationSlug}" mise à jour avec la nouvelle image`);
 }
 
-const file = readFileSync(imagePath);
-const mimeType = imagePath.endsWith('.png') ? 'image/png' : 'image/jpeg';
-
-const { error: uploadError } = await supabase.storage
-  .from('formations')
-  .upload(`images/${fileName}`, file, { contentType: mimeType, upsert: true });
-
-if (uploadError) {
-  console.error('❌ Erreur upload:', uploadError.message);
-  process.exit(1);
-}
-
-const { data: { publicUrl } } = supabase.storage
-  .from('formations')
-  .getPublicUrl(`images/${fileName}`);
-
-console.log(`✅ Image uploadée: ${publicUrl}`);
-
-const { error: updateError } = await supabase
-  .from('formations')
-  .update({ image_url: publicUrl })
-  .eq('slug', formationSlug);
-
-if (updateError) {
-  console.error('❌ Erreur mise à jour:', updateError.message);
-  process.exit(1);
-}
-
-console.log(`✅ Formation "${formationSlug}" mise à jour avec la nouvelle image`);
+main();
