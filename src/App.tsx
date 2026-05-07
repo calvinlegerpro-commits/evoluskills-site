@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import CGV from "./pages/CGV";
 import MentionsLegales from "./pages/MentionsLegales";
+import Rdv from "./pages/Rdv";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/cgv" element={<CGV />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/rdv" element={<Rdv />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

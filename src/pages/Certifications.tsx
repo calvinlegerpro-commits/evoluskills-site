@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Award, CheckCircle2, Calendar, GraduationCap, Target, FileText, Users } from "lucide-react";
+import { Award, CheckCircle2, Calendar, GraduationCap, Target, FileText, Users, ExternalLink } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -118,7 +118,74 @@ const Certifications = () => {
       <section className="py-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <Card className="border-0 shadow-lg overflow-hidden animate-fade-in">
+          {/* RS 7439 */}
+          <Card className="border-0 shadow-lg overflow-hidden animate-fade-in mb-8 relative">
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-secondary via-accent to-primary"></div>
+            <CardHeader className="bg-gradient-to-br from-secondary/5 to-transparent pb-4">
+              <div className="flex items-center gap-3 mb-3">
+                <Badge className="bg-gradient-to-r from-secondary to-accent text-secondary-foreground text-base px-4 py-1">
+                  RS 7439
+                </Badge>
+                <Badge variant="outline" className="border-green-500 text-green-700 dark:text-green-400">
+                  Active
+                </Badge>
+              </div>
+              <CardTitle className="text-2xl md:text-3xl leading-tight">
+                Certification RS 7439 — Répertoire Spécifique
+              </CardTitle>
+              <CardDescription className="text-base mt-2">
+                Certification inscrite au Répertoire Spécifique de France Compétences, délivrée par Online Sales Success.
+              </CardDescription>
+            </CardHeader>
+
+            <CardContent className="pt-4 pb-6 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className="flex items-start gap-3 p-4 rounded-xl bg-secondary/5 hover:bg-secondary/10 transition-colors">
+                  <GraduationCap className="text-secondary flex-shrink-0 mt-1" size={20} />
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">Certificateur</p>
+                    <p className="font-semibold text-sm">Online Sales Success</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-4 rounded-xl bg-secondary/5 hover:bg-secondary/10 transition-colors">
+                  <FileText className="text-secondary flex-shrink-0 mt-1" size={20} />
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">Répertoire</p>
+                    <p className="font-semibold text-sm">France Compétences — RS</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-4 rounded-xl bg-secondary/5 hover:bg-secondary/10 transition-colors">
+                  <Calendar className="text-secondary flex-shrink-0 mt-1" size={20} />
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">Date d'enregistrement</p>
+                    <p className="font-semibold text-sm">27/04/2026</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-4 rounded-xl bg-secondary/5 hover:bg-secondary/10 transition-colors">
+                  <Calendar className="text-secondary flex-shrink-0 mt-1" size={20} />
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">Échéance</p>
+                    <p className="font-semibold text-sm">18/12/2027</p>
+                  </div>
+                </div>
+              </div>
+
+              <Separator />
+
+              <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                <ExternalLink size={14} className="text-secondary shrink-0" />
+                <span>
+                  Cette certification est enregistrée au Répertoire Spécifique de France Compétences sous le numéro <span className="font-semibold text-foreground">RS 7439</span>. Elle atteste des compétences acquises à l'issue de la formation et est reconnue par l'État.
+                </span>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Qualiopi */}
+          <Card className="border-0 shadow-lg overflow-hidden animate-fade-in relative">
             <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-primary via-accent to-secondary"></div>
             <CardHeader className="bg-gradient-to-br from-accent/5 to-transparent pb-4">
               <div className="flex items-center gap-3 mb-3">

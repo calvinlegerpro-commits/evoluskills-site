@@ -222,32 +222,7 @@ const FormationDetail = () => {
               {/* Objectifs pédagogiques */}
               {objectives.length > 0 && (
                 <div>
-                  <h2 className="text-2xl font-bold mb-2">Objectifs pédagogiques</h2>
-                  <p className="text-xs text-muted-foreground mb-6">
-                    Source :{" "}
-                    <a
-                      href="https://online-sales-success.fr/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 underline hover:text-accent transition-colors"
-                    >
-                      <img src="/oss-logo.png" alt="Online Sales Success" className="h-4 w-auto inline-block" />
-                      Online Sales Success
-                    </a>
-                    {formation.france_competences_url && (
-                      <>
-                        {" — "}
-                        <a
-                          href={formation.france_competences_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="underline hover:text-accent transition-colors"
-                        >
-                          fiche France Compétences
-                        </a>
-                      </>
-                    )}
-                  </p>
+                  <h2 className="text-2xl font-bold mb-6">Objectifs pédagogiques</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {objectives.map((item, i) => (
                       <div key={i} className="rounded-2xl overflow-hidden border border-primary/10 shadow-sm">

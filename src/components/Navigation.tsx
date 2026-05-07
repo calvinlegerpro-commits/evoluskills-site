@@ -12,6 +12,7 @@ const Navigation = () => {
     { path: "/formations", label: "Nos formations" },
     { path: "/certifications", label: "Nos certifications" },
     { path: "/a-propos", label: "À propos" },
+    { path: "/rdv", label: "Prendre RDV" },
     { path: "/contact", label: "Contact" },
   ];
 
