@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, Award, Users, Clock, Brain, Monitor, Globe, Briefcase, Hotel, Factory, Store, ShoppingBag } from "lucide-react";
+import { Award, Users, Clock, Brain, Monitor, Globe, Briefcase, Hotel, Factory, Store, ShoppingBag } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useDomains, useSectors } from "@/hooks/useFormations";
@@ -18,13 +18,6 @@ const Home = () => {
     { icon: Award, title: "Certifications reconnues", description: "Des formations certifiantes de qualité" },
     { icon: Users, title: "Formateurs experts", description: "Des professionnels passionnés et expérimentés" },
     { icon: Clock, title: "Apprentissage flexible", description: "À votre rythme, 100% en ligne" },
-  ];
-
-  const cpfAdvantages = [
-    "Formation 100% financée par le CPF",
-    "Aucun frais à avancer",
-    "Certification à la clé",
-    "Accompagnement personnalisé",
   ];
 
   return (
@@ -50,7 +43,7 @@ const Home = () => {
               Se former<br />pour l'avenir
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto font-light">
-              Formations professionnelles 100% finançables CPF
+              Formations professionnelles certifiantes
             </p>
             <p className="text-lg text-accent font-medium mb-8">
               Management · Digital · IA
@@ -111,47 +104,6 @@ const Home = () => {
                 </Link>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* CPF Section */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-20 blur-3xl" 
-             style={{ background: 'var(--gradient-glow)' }} />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16 animate-slide-up">
-            <div className="inline-block mb-4 px-6 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm">
-              💰 Financement CPF
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              100% Financé par votre CPF
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Transformez vos droits à la formation en compétences concrètes
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {cpfAdvantages.map((advantage, index) => (
-              <Card key={index} className="border-accent/20 hover:border-accent/50 transition-all hover:shadow-lg hover:-translate-y-1 backdrop-blur-sm bg-card/80 rounded-3xl animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center mt-1">
-                      <Check className="text-accent" size={16} />
-                    </div>
-                    <p className="font-medium">{advantage}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Button size="lg" className="bg-gradient-to-r from-secondary via-accent to-secondary bg-200 animate-gradient-shift hover:shadow-xl text-secondary-foreground rounded-full px-8 hover:scale-105 transition-all">
-              Vérifier mes droits CPF
-            </Button>
           </div>
         </div>
       </section>
@@ -242,7 +194,7 @@ const Home = () => {
               Prêt à transformer<br />votre carrière ?
             </h2>
             <p className="text-xl mb-10 text-primary-foreground/90 font-light">
-              Rejoignez des centaines de professionnels qui ont<br />déjà boosté leurs compétences avec EvoluSkills
+              Faites le choix d'une formation certifiante,<br />conçue pour répondre aux exigences du terrain.
             </p>
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-2xl hover:shadow-accent/50 rounded-full px-10 hover:scale-110 transition-all animate-float">
               <Link to="/formations">Voir toutes les formations</Link>

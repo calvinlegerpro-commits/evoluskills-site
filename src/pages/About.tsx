@@ -31,7 +31,7 @@ const About = () => {
     { number: "500+", label: "Apprenants formés" },
     { number: "95%", label: "Taux de satisfaction" },
     { number: "10+", label: "Formateurs experts" },
-    { number: "100%", label: "Finançable CPF" },
+    { number: "100%", label: "Formations certifiantes" },
   ];
 
   return (
@@ -68,7 +68,7 @@ const About = () => {
             <CardContent className="p-8 relative">
               <p className="text-lg leading-relaxed">
                 Nous accompagnons professionnels et entrepreneurs dans leur montée en compétences digitales,
-                avec des formations pratiques, certifiantes et finançables par le CPF.
+                avec des formations pratiques et certifiantes.
               </p>
             </CardContent>
           </Card>
@@ -144,8 +144,8 @@ const About = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6 animate-fade-in">Organisme certifié</h2>
           <p className="text-lg text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            EvoluSkills est un organisme de formation certifié Qualiopi et nos formations sont éligibles au CPF. 
-            Nos certifications sont inscrites au RS et reconnues par l'État, garantissant la qualité et la 
+            EvoluSkills est un organisme de formation certifié Qualiopi.
+            Nos certifications sont inscrites au RS et reconnues par l'État, garantissant la qualité et la
             reconnaissance professionnelle de nos formations.
           </p>
         </div>

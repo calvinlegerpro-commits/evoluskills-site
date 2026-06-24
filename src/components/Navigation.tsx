@@ -39,9 +39,6 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Financement CPF
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -69,9 +66,6 @@ const Navigation = () => {
                   {link.label}
                 </Link>
               ))}
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground w-full">
-                Financement CPF
-              </Button>
             </div>
           </div>
         )}

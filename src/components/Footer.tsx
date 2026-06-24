@@ -16,7 +16,7 @@ const Footer = () => {
             </p>
             <p className="text-primary-foreground/80 mb-4">
               Organisme de formation professionnelle.
-              Management, Digital, IA — 100% finançables CPF.
+              Management, Digital, IA.
             </p>
           </div>
 

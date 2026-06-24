@@ -147,11 +147,6 @@ const FormationDetail = () => {
                   {formation.certification_code}
                 </Badge>
               )}
-              {formation.cpf_eligible && (
-                <Badge className="bg-white/20 text-white border-0 backdrop-blur-sm">
-                  Finançable CPF
-                </Badge>
-              )}
               {formation.format && (
                 <Badge className="bg-white/20 text-white border-0 backdrop-blur-sm">
                   {formation.format}
@@ -426,16 +421,6 @@ const FormationDetail = () => {
                     </p>
                   </div>
                 )}
-                {formation.cpf_eligible && (
-                  <div className="bg-secondary/8 border border-secondary/20 rounded-2xl p-5">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-secondary mb-2">
-                      Financement CPF
-                    </p>
-                    <p className="text-sm text-muted-foreground italic leading-relaxed">
-                      Cette formation professionnelle de par son caractère certifiant peut être prise en charge par le CPF. Toute action ne rentrant pas dans le cadre de l'article L6313-1 du code du travail ne rentre pas dans ce dispositif de prise en charge.
-                    </p>
-                  </div>
-                )}
               </div>
 
             </div>
@@ -512,9 +497,6 @@ const FormationDetail = () => {
                       <p className="text-3xl font-bold text-accent">
                         {formation.price.toLocaleString("fr-FR")}€
                       </p>
-                      {formation.cpf_eligible && (
-                        <p className="text-sm text-muted-foreground mt-1">100% Finançable CPF</p>
-                      )}
                     </div>
                   )}
 
@@ -530,13 +512,6 @@ const FormationDetail = () => {
                     </a>
                   )}
 
-                  {formation.cpf_eligible && formation.cpf_url && (
-                    <Button asChild className="w-full rounded-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                      <a href={formation.cpf_url} target="_blank" rel="noopener noreferrer">
-                        S'inscrire avec le CPF
-                      </a>
-                    </Button>
-                  )}
 
                   <Button asChild className="w-full rounded-full">
                     <Link to="/contact">S'inscrire</Link>

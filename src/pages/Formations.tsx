@@ -40,7 +40,7 @@ const Formations = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Nos formations</h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl">
-            Développez vos compétences avec nos formations certifiantes et finançables CPF
+            Développez vos compétences avec nos formations certifiantes
           </p>
         </div>
         <div className="absolute -bottom-px left-0 right-0">
@@ -129,11 +129,6 @@ const Formations = () => {
                           {formation.certification_code && (
                             <span className="text-xs font-semibold bg-secondary/15 text-secondary px-2 py-0.5 rounded-full">
                               {formation.certification_code}
-                            </span>
-                          )}
-                          {formation.cpf_eligible && (
-                            <span className="text-xs font-semibold border border-primary/30 text-primary px-2 py-0.5 rounded-full">
-                              CPF
                             </span>
                           )}
                         </div>
