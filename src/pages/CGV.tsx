@@ -153,7 +153,6 @@ const CGV = () => {
               </p>
               <p className="font-semibold text-foreground">Modes de financement acceptés :</p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Compte Personnel de Formation (CPF)</li>
                 <li>Financement par les OPCO (Opérateurs de Compétences)</li>
                 <li>Paiement direct (carte bancaire, virement, chèque)</li>
                 <li>Prise en charge par l&apos;employeur</li>

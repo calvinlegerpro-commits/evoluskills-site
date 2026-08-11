@@ -178,7 +178,7 @@ const MentionsLegales = () => {
                 <strong>Certification Qualiopi :</strong> [En cours d&apos;obtention]
               </p>
               <p>
-                La certification Qualiopi atteste de la qualité du processus mis en œuvre par les organismes de formation et permet la prise en charge des formations par les financeurs publics et mutualisés (CPF, OPCO, etc.).
+                La certification Qualiopi atteste de la qualité du processus mis en œuvre par les organismes de formation et permet la prise en charge des formations par les financeurs publics et mutualisés (OPCO, etc.).
               </p>
               <p className="mt-4">
                 <strong>Certification inscrite au Répertoire Spécifique :</strong>

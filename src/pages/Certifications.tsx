@@ -16,7 +16,7 @@ const Certifications = () => {
     certifier: "Evolve",
     category: "Qualité des prestataires de formation",
 
-    summary: "Qualiopi est la certification qualité obligatoire pour les organismes de formation souhaitant accéder aux financements publics et mutualisés (CPF, OPCO, Pôle emploi…). Elle atteste de la qualité des processus mis en œuvre par EvoluSkills dans la conception et la délivrance de ses formations.",
+    summary: "Qualiopi est la certification qualité obligatoire pour les organismes de formation souhaitant accéder aux financements publics et mutualisés (OPCO, Pôle emploi…). Elle atteste de la qualité des processus mis en œuvre par EvoluSkills dans la conception et la délivrance de ses formations.",
 
     objectives: [
       "Garantir la qualité et la transparence des informations communiquées aux apprenants",
@@ -78,7 +78,6 @@ const Certifications = () => {
     targetAudience: [
       "Salariés en formation professionnelle continue",
       "Demandeurs d'emploi financés par Pôle emploi",
-      "Particuliers utilisant leur Compte Personnel de Formation (CPF)",
       "Entreprises et OPCO finançant des parcours de formation",
       "Indépendants et dirigeants de TPE/PME",
     ],
