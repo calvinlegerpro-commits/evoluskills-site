@@ -60,7 +60,7 @@ const MentionsLegales = () => {
                 <strong>Numéro de TVA intracommunautaire :</strong> FR24988964474
               </p>
               <p>
-                <strong>Numéro de déclaration d&apos;activité de formation :</strong> [À compléter auprès de la DREETS]
+                <strong>Numéro de déclaration d&apos;activité de formation :</strong> 11923001992, attribué le 04 décembre 2025
               </p>
               <p>
                 <strong>Code APE/NAF :</strong> 8559A - Formation continue d&apos;adultes
@@ -94,9 +94,9 @@ const MentionsLegales = () => {
                 Le site evoluskills.fr est hébergé par :
               </p>
               <p>
-                <strong>Lovable</strong><br />
-                Plateforme de développement et d&apos;hébergement web<br />
-                <a href="https://lovable.dev" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">https://lovable.dev</a>
+                <strong>Hostinger International Ltd.</strong><br />
+                61 Lordou Vironos Street, 6023 Larnaca, Chypre<br />
+                <a href="https://www.hostinger.fr" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">https://www.hostinger.fr</a>
               </p>
             </CardContent>
           </Card>
