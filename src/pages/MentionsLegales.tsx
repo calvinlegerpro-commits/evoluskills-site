@@ -169,13 +169,13 @@ const MentionsLegales = () => {
                 EVOLUSKILLS est un organisme de formation professionnelle déclaré auprès de la Direction Régionale de l&apos;Économie, de l&apos;Emploi, du Travail et des Solidarités (DREETS).
               </p>
               <p>
-                <strong>Numéro de déclaration d&apos;activité :</strong> [En cours d&apos;obtention - numéro attribué par la DREETS après premier bilan pédagogique et financier]
+                <strong>Numéro de déclaration d&apos;activité :</strong> 11923001992, attribué le 04 décembre 2025
               </p>
               <p>
                 Cette déclaration ne vaut pas agrément de l&apos;État, conformément à l&apos;article L.6352-12 du Code du travail.
               </p>
               <p className="mt-4">
-                <strong>Certification Qualiopi :</strong> [En cours d&apos;obtention]
+                <strong>Certification Qualiopi :</strong> EVO9592026001, valable du 07/01/2026 au 06/01/2029
               </p>
               <p>
                 La certification Qualiopi atteste de la qualité du processus mis en œuvre par les organismes de formation et permet la prise en charge des formations par les financeurs publics et mutualisés (OPCO, etc.).
