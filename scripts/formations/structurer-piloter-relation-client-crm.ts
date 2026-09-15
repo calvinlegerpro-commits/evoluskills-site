@@ -3,7 +3,7 @@ import { upsertFormation } from '../upsert-formation.ts';
 await upsertFormation({
   title: "Structurer et piloter la relation client avec un CRM",
   slug: "structurer-piloter-relation-client-crm",
-  short_description: "Structurez, organisez et pilotez la relation client sur votre CRM (HubSpot ou équivalent) : modèle de données, propriétés, pipelines — une logique transférable à tout outil CRM.",
+  short_description: "Structurez, organisez et pilotez la relation client sur votre CRM (HubSpot ou équivalent) : modèle de données, propriétés, pipelines. Une logique transférable à tout outil CRM.",
   description: "Formation de 21h pour les collaborateurs utilisateurs d'un CRM souhaitant structurer et fiabiliser leurs données clients et modéliser leurs parcours. Formation réalisée avec HubSpot comme support de démonstration.",
   domain_slug: "digital",
   duration: "21h",
@@ -56,7 +56,7 @@ await upsertFormation({
         "Cartographier un parcours client réel de l'entreprise, du premier contact à la conversion (2h30)",
         "Construire le pipeline qui reflète ce parcours (1h30)",
         "Associer les enregistrements concernés entre eux (ex : clients et entreprises) (1h)",
-        "Faire le point sur les acquis et leur mise en pratique au quotidien — bilan de fin de formation (1h)",
+        "Faire le point sur les acquis et leur mise en pratique au quotidien. Bilan de fin de formation (1h)",
       ],
     },
   ],
