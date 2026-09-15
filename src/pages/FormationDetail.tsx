@@ -388,7 +388,7 @@ const FormationDetail = () => {
                       <Heart size={18} className="text-accent" />
                     </div>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      Les personnes en situation de handicap peuvent bénéficier de notre formation. Nous étudions chaque situation individuellement afin de mettre en place les adaptations nécessaires, en lien avec notre référent handicap et celui du certificateur Online Sales Success.
+                      Les personnes en situation de handicap peuvent bénéficier de notre formation. Nous étudions chaque situation individuellement afin de mettre en place les adaptations nécessaires, en lien avec notre référent handicap{formation.certifier ? ` et celui du certificateur ${formation.certifier}` : ""}.
                     </p>
                   </div>
                   <div className="flex items-start gap-4">
@@ -409,9 +409,9 @@ const FormationDetail = () => {
               </div>
 
               {/* Informations légales */}
-              <div className="space-y-4">
-                <h2 className="text-2xl font-bold">Informations légales</h2>
-                {formation.exam_mention && (
+              {formation.exam_mention && (
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-bold">Informations légales</h2>
                   <div className="bg-secondary/8 border border-secondary/20 rounded-2xl p-5">
                     <p className="text-[11px] font-bold uppercase tracking-wider text-secondary mb-2">
                       Préparation à l'examen de certification
@@ -420,8 +420,8 @@ const FormationDetail = () => {
                       {formation.exam_mention}
                     </p>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
 
             </div>
 
