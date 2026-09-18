@@ -61,6 +61,7 @@ export interface Formation {
   prerequisites: string[] | null;
   objectives: string[] | null;
   program: ProgramModule[] | null;
+  program_pdf_url: string | null;
   modalities: string[] | null;
   competences: string[] | null;
   exam_mention: string | null;

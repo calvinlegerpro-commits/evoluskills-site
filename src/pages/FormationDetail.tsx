@@ -290,6 +290,15 @@ const FormationDetail = () => {
                       variant="outline"
                       className="rounded-full gap-2"
                       onClick={() => {
+                        if (formation.program_pdf_url) {
+                          const a = document.createElement("a");
+                          a.href = formation.program_pdf_url;
+                          a.download = `programme-${formation.slug}.pdf`;
+                          a.target = "_blank";
+                          a.rel = "noopener noreferrer";
+                          a.click();
+                          return;
+                        }
                         const lines = [
                           formation.title,
                           `Durée totale : ${formation.duration ?? ""}`,
